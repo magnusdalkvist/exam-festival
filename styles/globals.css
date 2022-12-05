@@ -41,17 +41,24 @@ form {
   margin: 0;
 }
 
-.schedule_grid {
-  margin: 0 2rem 0 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
+/* SCHEDULE */
+
+.act {
+  display: flex;
+  justify-items: center;
 }
 
-.schedule_grid h2 {
-  font-size: 1rem;
+.dayPicker {
+  overflow: hidden;
+  display: inline-flex;
+  gap: 2rem;
 }
 
-.schedule_act {
-  outline: 2px solid #72a24e;
+.dayPicker h2 {
+  -webkit-text-stroke: #72a24e 1.5px;
+  text-transform: uppercase;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: 700;
 }
