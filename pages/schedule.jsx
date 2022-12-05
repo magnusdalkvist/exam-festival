@@ -1,13 +1,19 @@
+import OneScheduleTEST from "../components/OneScheduleTEST";
+
 function schedule({ data }) {
-  console.log("data " + data);
-  return <div>schedule</div>;
+  return (
+    <div>
+      <OneSchedule data={data} />
+    </div>
+  );
 }
 
 export default schedule;
 
 export async function getServerSideProps() {
   // Get data from api
-  const res = await fetch("http://localhost:8080/schedule/");
+  const day = "mon";
+  const res = await fetch("http://localhost:8080/schedule/" + day);
   const data = await res.json();
   console.log(data);
 
