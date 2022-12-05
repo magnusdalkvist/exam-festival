@@ -1,5 +1,5 @@
 function Footer() {
-  return <div>Footer content</div>;
+  return <div>&copy;2022 Lasse & son</div>;
 }
 
 export default Footer;

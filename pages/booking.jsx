@@ -1,8 +1,8 @@
+import { useState } from "react";
 import CampSites from "../components/CampSites";
 import SelectForm from "../components/SelectForm";
 
 function booking({ data }) {
-  console.log(data);
   return (
     <div>
       <h1>Booking</h1>
