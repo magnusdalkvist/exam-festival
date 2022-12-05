@@ -1,9 +1,16 @@
-import OneScheduleTEST from "../components/OneScheduleTEST";
+import OneSchedule from "../components/OneSchedule";
 
 function schedule({ data }) {
   return (
     <div>
-      <OneSchedule data={data} />
+      <div className="schedule_grid">
+        <h3>MIDGARD</h3>
+        <h3>JOTUNHEIM</h3>
+        <h3>VANAHEIM</h3>
+        <OneSchedule data={data.Midgard} />
+        <OneSchedule data={data.Jotunheim} />
+        <OneSchedule data={data.Vanaheim} />
+      </div>
     </div>
   );
 }

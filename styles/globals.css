@@ -40,3 +40,18 @@ form {
 .ticket p {
   margin: 0;
 }
+
+.schedule_grid {
+  margin: 0 2rem 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.schedule_grid h2 {
+  font-size: 1rem;
+}
+
+.schedule_act {
+  outline: 2px solid #72a24e;
+}
