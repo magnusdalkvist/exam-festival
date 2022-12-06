@@ -4,6 +4,13 @@ import Anchor from "./Anchor";
 
 function Header() {
   const [state, setState] = useState("close");
+  const router = useRouter();
+
+  const pages = ["home", "booking", "schedule"];
+
+  pages.forEach((p) => {
+    console.log(p);
+  });
 
   const openClose = () => {
     if (state == "close") {
@@ -29,30 +36,18 @@ function Header() {
       </nav>
       <div className={"menu " + state}>
         <ul className="menu_links">
-          <Anchor
-            href="/"
-            click={() => {
-              setState("close");
-            }}
-          >
-            Home
-          </Anchor>
-          <Anchor
-            href="/booking"
-            click={() => {
-              setState("close");
-            }}
-          >
-            Booking
-          </Anchor>
-          <Anchor
-            href="/schedule"
-            click={() => {
-              setState("close");
-            }}
-          >
-            Schedule
-          </Anchor>
+          {pages.map((p) => {
+            return (
+              <Anchor
+                href={"/" + p}
+                click={() => {
+                  setState("close");
+                }}
+              >
+                {p}
+              </Anchor>
+            );
+          })}
         </ul>
       </div>
     </header>
