@@ -2,15 +2,16 @@ import Anchor from "./Anchor";
 
 function Header() {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Anchor href="/">Home</Anchor>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <nav>
+      <ul>
+        <li>
+          <Anchor className="logo" href="/">
+            Greenmark
+          </Anchor>
+        </li>
+      </ul>
+      <button>Burger</button>
+    </nav>
   );
 }
 
