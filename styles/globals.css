@@ -11,6 +11,22 @@ nav {
   justify-content: space-between;
 }
 
+.menu.closed {
+  transform: translatex(100%);
+}
+
+.menu.open {
+  transform: translatex(20%);
+}
+
+.menu {
+  transition: 2s;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
 ul {
   margin: 0;
   padding: 0;
