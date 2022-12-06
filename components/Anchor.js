@@ -1,3 +1,4 @@
+import styles from "../styles/Header.module.css";
 import { useRouter } from "next/router";
 
 export default function Anchor({ href, className, children, click }) {
@@ -16,7 +17,7 @@ export default function Anchor({ href, className, children, click }) {
         click();
       }}
       href={href}
-      className={active}
+      className={styles[active]}
     >
       {children}
     </a>

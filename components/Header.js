@@ -1,6 +1,6 @@
-import { useRouter } from "next/router";
 import { useState } from "react";
 import Anchor from "./Anchor";
+import styles from "../styles/Header.module.css";
 
 function Header() {
   const [state, setState] = useState("close");
@@ -15,20 +15,20 @@ function Header() {
 
   return (
     <header>
-      <nav>
+      <nav className={styles.nav}>
         <ul>
           <li>
-            <Anchor className="logo" href="/">
+            <Anchor className={styles.logo} href="/">
               Greenmark
             </Anchor>
           </li>
         </ul>
-        <div className="burger_wrapper" onClick={openClose}>
-          <div className={"hamburger " + state}></div>
+        <div className={styles.burger_wrapper} onClick={openClose}>
+          <div className={styles.hamburger + " " + styles[state]}></div>
         </div>
       </nav>
-      <div className={"menu " + state}>
-        <ul className="menu_links">
+      <div className={styles.menu + " " + styles[state]}>
+        <ul className={styles.menu_links}>
           <Anchor
             href="/"
             click={() => {
