@@ -1,7 +1,10 @@
 import BookingForm from "./BookingForm";
 import styles from "../styles/Booking.module.css";
+import { useState } from "react";
 
 function Booking({ spotData }) {
+  const [state, setState] = useState("close");
+
   return (
     <>
       <div className={styles.button}>
@@ -11,7 +14,8 @@ function Booking({ spotData }) {
         </svg>
       </div>
       <div></div>
-      <div className={styles.menu}>
+      <div className={styles.menu + " " + styles[state]}>
+        <div className={styles.close_btn}></div>
         <BookingForm data={spotData} />
       </div>
     </>
