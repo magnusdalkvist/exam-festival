@@ -14,7 +14,7 @@ function Header() {
   };
 
   return (
-    <header>
+    <header className={styles.header}>
       <nav className={styles.nav}>
         <ul>
           <li>
@@ -52,6 +52,22 @@ function Header() {
             }}
           >
             Schedule
+          </Anchor>
+          <Anchor
+            href="/contact"
+            click={() => {
+              setState("close");
+            }}
+          >
+            Contact
+          </Anchor>
+          <Anchor
+            href="/about"
+            click={() => {
+              setState("close");
+            }}
+          >
+            About
           </Anchor>
         </ul>
       </div>
