@@ -1,34 +1,47 @@
 import styles from "../styles/Schedule.module.css";
 import OneSchedule from "../components/OneSchedule";
-import { useState, useEffect } from "react";
-import AnchorLink from "../components/AnchorLink";
+import { useState, useEffect, useRef } from "react";
 
 function schedule() {
   const [selectDay, setSelectDay] = useState("mon");
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
   const url = "http://localhost:8080/schedule/";
   const [data, setData] = useState([]);
+  //SCROLL
+  const ref = useRef(null);
 
   useEffect(() => {
     fetch(url + selectDay).then((result) => {
       result.json().then((resp) => {
         setData(resp);
-        console.log(resp);
       });
     });
   }, [selectDay]);
 
-  function onDayChange(day) {
-    day;
+  //SCROLL
+  const onDayChange = (day) => {
     setSelectDay(day.substring(0, 3));
-    console.log(selectDay);
-  }
+    scrollToDay();
+  };
+  //SCROLL
+  const scrollToDay = () => {
+    console.log(ref);
+
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div>
-      <div id="dayPicker">
-        {days.map((day, index) => (
-          <button className={styles.daysbtn} onClick={() => onDayChange(day)}>
+      <div className={styles.daypicker}>
+        {days.map((day, i) => (
+          <button
+            ref={ref}
+            className={styles.daysbtn}
+            onClick={function () {
+              onDayChange(day);
+              scrollToDay();
+            }}
+          >
             {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
           </button>
         ))}
