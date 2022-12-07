@@ -5,7 +5,7 @@ import Header from "./Header";
 export default function Layout({ children, spotData }) {
   return (
     <>
-      <Header />
+      <Header spotData={spotData} />
       <Booking spotData={spotData} />
       <main>{children}</main>
       <Footer />

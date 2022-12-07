@@ -2,8 +2,6 @@ import BookingForm from "./BookingForm";
 import styles from "../styles/Booking.module.css";
 
 function Booking({ spotData }) {
-  const Component = () => <Button>Click me</Button>;
-
   return (
     <>
       <div className={styles.button}>
@@ -19,5 +17,4 @@ function Booking({ spotData }) {
     </>
   );
 }
-
 export default Booking;

@@ -103,9 +103,6 @@ function SelectForm(props) {
           <InfoForm />
         </Collapse>
       </Collapse.Group>
-      {props.data.forEach((prop) => {
-        <h1>hej</h1>;
-      })}
     </>
   );
 }

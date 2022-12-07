@@ -5,8 +5,6 @@ export default function SpotForm(props) {
   const [area, setArea] = useState("");
   let id;
 
-  console.log(props.data);
-
   const reserveSpot = async (e) => {
     e.preventDefault();
     const selectedArea = (selected) => {
@@ -30,12 +28,5 @@ export default function SpotForm(props) {
     }
   };
 
-  return (
-    <>
-      {/* <Radio.Group label="Options" defaultValue="1" orientation="horizontal"></Radio.Group> */}
-      {props.data.forEach((prop) => {
-        return <h1>Hej</h1>;
-      })}
-    </>
-  );
+  return <></>;
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Anchor from "./Anchor";
 import styles from "../styles/Header.module.css";
 
-function Header() {
+function Header({ spotData }) {
   const [state, setState] = useState("close");
 
   const openClose = () => {
@@ -16,13 +16,9 @@ function Header() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <ul>
-          <li>
-            <Anchor className={styles.logo} href="/">
-              Greenmark
-            </Anchor>
-          </li>
-        </ul>
+        <Anchor className={styles.logo} href="/">
+          Greenmark
+        </Anchor>
         <div className={styles.burger_wrapper} onClick={openClose}>
           <div className={styles.hamburger + " " + styles[state]}></div>
         </div>
