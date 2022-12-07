@@ -31,6 +31,10 @@
   padding-left: 15rem;
 }
 
+.active {
+  -webkit-text-fill-color: #79ac53;
+}
+
 .daysbtn:hover,
 .daysbtn:active {
   -webkit-text-fill-color: #79ac53;

@@ -1,14 +1,23 @@
 import styles from "../styles/Schedule.module.css";
 import OneSchedule from "../components/OneSchedule";
 import { useState, useEffect, useRef } from "react";
+import React from "react";
 
 function schedule() {
   const [selectDay, setSelectDay] = useState("mon");
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
   const url = "http://localhost:8080/schedule/";
   const [data, setData] = useState([]);
+
   //SCROLL
-  const ref = useRef(null);
+  const ref = useState([]);
+  let ref0 = React.useRef();
+  let ref1 = React.useRef();
+  let ref2 = React.useRef();
+  let ref3 = React.useRef();
+  let ref4 = React.useRef();
+  let ref5 = React.useRef();
+  let ref6 = React.useRef();
 
   useEffect(() => {
     fetch(url + selectDay).then((result) => {
@@ -21,25 +30,102 @@ function schedule() {
   //SCROLL
   const onDayChange = (day) => {
     setSelectDay(day.substring(0, 3));
-    scrollToDay();
   };
-  //SCROLL
-  const scrollToDay = () => {
-    console.log(ref);
 
-    ref.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  function scrollTo(ref) {
+    if (!ref.current) return;
+    ref.current.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+  }
 
   return (
     <div>
       <div className={styles.daypicker}>
+        {/* <button
+          key={0}
+          ref={ref0}
+          className={styles.daysbtn}
+          onClick={function () {
+            onDayChange("mon");
+            scrollTo(ref0);
+          }}
+        >
+          Monday
+        </button>
+        <button
+          key={1}
+          ref={ref1}
+          className={styles.daysbtn}
+          onClick={function () {
+            onDayChange("tue");
+            scrollTo(ref1);
+          }}
+        >
+          Tuesday
+        </button>
+        <button
+          key={2}
+          ref={ref2}
+          className={styles.daysbtn}
+          onClick={function () {
+            onDayChange("wed");
+            scrollTo(ref2);
+          }}
+        >
+          Wednesday
+        </button>
+        <button
+          key={3}
+          ref={ref3}
+          className={styles.daysbtn}
+          onClick={function () {
+            onDayChange("thu");
+            scrollTo(ref3);
+          }}
+        >
+          Thursday
+        </button>
+        <button
+          key={4}
+          ref={ref4}
+          className={styles.daysbtn}
+          onClick={function () {
+            onDayChange("fri");
+            scrollTo(ref4);
+          }}
+        >
+          Friday
+        </button>
+        <button
+          key={5}
+          ref={ref5}
+          className={styles.daysbtn}
+          onClick={function () {
+            onDayChange("sat");
+            scrollTo(ref5);
+          }}
+        >
+          Saturday
+        </button>
+        <button
+          key={6}
+          ref={ref6}
+          className={styles.daysbtn}
+          onClick={function () {
+            onDayChange("sun");
+            scrollTo(ref6);
+          }}
+        >
+          Sunday
+        </button> */}
         {days.map((day, i) => (
           <button
-            ref={ref}
+            key={i}
+            ref={ref[i]}
             className={styles.daysbtn}
             onClick={function () {
+              console.log(i);
               onDayChange(day);
-              scrollToDay();
+              scrollTo(ref[i]);
             }}
           >
             {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
