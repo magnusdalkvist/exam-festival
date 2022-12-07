@@ -40,6 +40,20 @@ function schedule() {
   return (
     <div>
       <div className={styles.daypicker}>
+        {days.map((day, i) => (
+          <button
+            key={i}
+            ref={ref[i]}
+            className={styles.daysbtn}
+            onClick={function () {
+              console.log(i);
+              onDayChange(day);
+              scrollTo(ref[i]);
+            }}
+          >
+            {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
+          </button>
+        ))}
         {/* <button
           key={0}
           ref={ref0}
@@ -117,20 +131,6 @@ function schedule() {
         >
           Sunday
         </button> */}
-        {days.map((day, i) => (
-          <button
-            key={i}
-            ref={ref[i]}
-            className={styles.daysbtn}
-            onClick={function () {
-              console.log(i);
-              onDayChange(day);
-              scrollTo(ref[i]);
-            }}
-          >
-            {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
-          </button>
-        ))}
       </div>
       <div className={styles.schedule_grid}>
         <div className={styles.div1}>
