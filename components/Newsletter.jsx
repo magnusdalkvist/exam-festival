@@ -6,7 +6,7 @@ function Newsletter() {
     <div>
       <form>
         <h6>SIGN UP TO OUR NEWSLETTER</h6>
-        <div class="">
+        <div className="">
           <input type="email" name="email" id="email" placeholder="Email Address" />
           <input type="submit" value="Sign Up" class="fit" />
         </div>
