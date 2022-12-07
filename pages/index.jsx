@@ -1,10 +1,9 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Anchor from "../components/Anchor";
+import AnchorLink from "../components/AnchorLink";
 import Image from "next/image";
 
 export default function Home() {
-  console.log(styles);
   return (
     <>
       <Head>
@@ -20,15 +19,15 @@ export default function Home() {
           <h2 className={styles.splash_h2}>WE CARE ABOUT OUR GREEN FUTURE</h2>
         </div>
         <div className={styles.splash_calltoaction}>
-          <Anchor className={styles.calltoaction} href="/booking">
+          <AnchorLink className={styles.calltoaction} href="/booking">
             TICKETS
-          </Anchor>
-          <Anchor className={styles.calltoaction} href="/schedule">
+          </AnchorLink>
+          <AnchorLink className={styles.calltoaction} href="/schedule">
             SCHEDULE
-          </Anchor>
+          </AnchorLink>
         </div>
       </div>
-      <div className={styles.info}>
+      {/* <div className={styles.info}>
         <div className={styles.infomation}>
           <Image></Image>
           <h3></h3>
@@ -44,7 +43,7 @@ export default function Home() {
           <h3></h3>
           <p></p>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

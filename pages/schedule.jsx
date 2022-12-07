@@ -1,7 +1,7 @@
 import styles from "../styles/Schedule.module.css";
 import OneSchedule from "../components/OneSchedule";
 import { useState, useEffect } from "react";
-import Anchor from "../components/Anchor";
+import AnchorLink from "../components/AnchorLink";
 
 function schedule() {
   const [selectDay, setSelectDay] = useState("mon");
@@ -19,6 +19,7 @@ function schedule() {
   }, [selectDay]);
 
   function onDayChange(day) {
+    day;
     setSelectDay(day.substring(0, 3));
     console.log(selectDay);
   }
@@ -27,7 +28,9 @@ function schedule() {
     <div>
       <div id="dayPicker">
         {days.map((day, index) => (
-          <button onClick={() => onDayChange(day)}>{day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}</button>
+          <button className={styles.daysbtn} onClick={() => onDayChange(day)}>
+            {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
+          </button>
         ))}
       </div>
       <div className={styles.schedule_grid}>
@@ -91,6 +94,14 @@ function schedule() {
 }
 
 export default schedule;
+
+{
+  /* <div id="dayPicker">
+{days.map((day, index) => (
+  <button onClick={() => onDayChange(day)}>{day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}</button>
+))}
+</div> */
+}
 
 // export async function getServerSideProps() {
 //   // Get data from api

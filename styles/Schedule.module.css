@@ -1,6 +1,19 @@
+.daysbtn {
+  background: #79ac53;
+
+  transition: background 10ms 300ms ease;
+}
+
+.daysbtn::before,
+.daysbtn::after {
+  transition: top 300ms 350ms ease, transform 300ms 50ms ease;
+  background: #79ac53;
+  content: "";
+}
+
 .schedule_grid {
   display: grid;
-  grid-template-columns: 0.8fr, repeat(3, 1fr);
+  grid-template-columns: 0.8fr, repeat(3, 300px);
   grid-template-rows: repeat(13, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 10px;
