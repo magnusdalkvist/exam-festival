@@ -1,33 +1,29 @@
 import styles from "../styles/Schedule.module.css";
 import OneSchedule from "../components/OneSchedule";
 import { useState, useEffect } from "react";
-import Anchor from "../components/Anchor";
 
-function schedule() {
+function schedule({ data }) {
   const [selectDay, setSelectDay] = useState("mon");
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
   const url = "http://localhost:8080/schedule/";
-  const [data, setData] = useState([]);
-
+  const [Data2, setData] = useState([]);
   useEffect(() => {
     fetch(url + selectDay).then((result) => {
       result.json().then((resp) => {
         setData(resp);
-        console.log(resp);
+        setLoading(false);
       });
     });
-  }, [selectDay]);
-
-  function onDayChange(day) {
-    setSelectDay(day.substring(0, 3));
-    console.log(selectDay);
-  }
+  }, [Data2]);
 
   return (
     <div>
       <div id="dayPicker">
         {days.map((day, index) => (
-          <button onClick={() => onDayChange(day)}>{day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}</button>
+          <label key={index + 1} className="button-days">
+            {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
+            <input type="radio" name="days" id={day} onClick={() => onDayChange(day)} defaultChecked={day.substring(0, 3) === "mon"} />
+          </label>
         ))}
       </div>
       <div className={styles.schedule_grid}>
