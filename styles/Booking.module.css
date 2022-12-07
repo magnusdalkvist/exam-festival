@@ -1,5 +1,8 @@
 .button {
-  position: absolute;
+  transition: 350ms;
+  transform: scale(0.9);
+  opacity: 0.5;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,4 +14,22 @@
   width: 50px;
   height: 50px;
   color: white;
+}
+
+.button:hover {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.menu {
+  z-index: 1000;
+  /* transform: translateX(100%); */
+  background-color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 25vw;
+  box-sizing: border-box;
+  min-width: 400px;
 }

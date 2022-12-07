@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { Radio } from "@nextui-org/react";
 
 export default function SpotForm(props) {
   const [area, setArea] = useState("");
   let id;
+
+  console.log(props.data);
 
   const reserveSpot = async (e) => {
     e.preventDefault();
@@ -28,20 +31,11 @@ export default function SpotForm(props) {
   };
 
   return (
-    <form onSubmit={reserveSpot} id="spot">
-      <label htmlFor="campsite">Område:</label>
-      <select name="campsite" id="campsite" onChange={(e) => setArea(e.target.value)}>
-        <option selected hidden>
-          Vælg område
-        </option>
-        {props.data.map((camp, i) => {
-          return (
-            <option key={i} value={camp.area}>
-              {camp.area}
-            </option>
-          );
-        })}
-      </select>
-    </form>
+    <>
+      {/* <Radio.Group label="Options" defaultValue="1" orientation="horizontal"></Radio.Group> */}
+      {props.data.forEach((prop) => {
+        return <h1>Hej</h1>;
+      })}
+    </>
   );
 }

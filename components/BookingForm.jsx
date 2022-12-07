@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Collapse } from "@nextui-org/react";
 import InfoForm from "./forms/InfoForm";
 import SpotForm from "./forms/SpotForm";
 import TicketForm from "./forms/TicketForm";
@@ -91,23 +92,20 @@ function SelectForm(props) {
 
   return (
     <>
-      {flow == "spot" && <SpotForm onSubmit={spotReservation} data={props.data} />}
-      {flow == "ticket" && <TicketForm onSubmit={ticketInfo} />}
-      {flow == "info" && (
-        <div>
-          {order.regular > 0 && <h3>Standard</h3>}
-          {getRegularAmount()}
-          {order.vip > 0 && <h3>VIP</h3>}
-          {getVIPAmount()}
-        </div>
-      )}
-      {flow != "spot" && (
-        <button type="button" onClick={backButton}>
-          Tilbage
-        </button>
-      )}
-      <input type="submit" value="Videre" form={flow} />
-      <input type="button" value="test" onClick={orderData} />
+      <Collapse.Group>
+        <Collapse title="Spot" expanded>
+          <SpotForm onSubmit={spotReservation} data={props.data} />
+        </Collapse>
+        <Collapse title="Tickets">
+          <TicketForm onSubmit={ticketInfo} />
+        </Collapse>
+        <Collapse title="Info">
+          <InfoForm />
+        </Collapse>
+      </Collapse.Group>
+      {props.data.forEach((prop) => {
+        <h1>hej</h1>;
+      })}
     </>
   );
 }
