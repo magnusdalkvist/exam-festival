@@ -1,7 +1,7 @@
 import styles from "../styles/Header.module.css";
 import { useRouter } from "next/router";
 
-export default function Anchor({ href, className, children, click }) {
+export default function Anchor({ href, children, click }) {
   const router = useRouter();
   let active;
 
