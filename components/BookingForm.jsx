@@ -3,22 +3,15 @@ import { Collapse } from "@nextui-org/react";
 import InfoForm from "./forms/InfoForm";
 import SpotForm from "./forms/SpotForm";
 import TicketForm from "./forms/TicketForm";
+import BillingForm from "./forms/BillingForm";
 
 function SelectForm(props) {
-  const [flow, setFlow] = useState("spot");
+  const [area, setArea] = useState(null);
   const [reservation, setReservation] = useState({});
   const [order, setOrder] = useState({});
   const info = {};
 
   const objects = {};
-
-  const backButton = () => {
-    if (flow == "ticket") {
-      setFlow("spot");
-    } else {
-      setFlow("ticket");
-    }
-  };
 
   const orderData = () => {
     let forms = document.querySelectorAll("form");
@@ -94,15 +87,19 @@ function SelectForm(props) {
     <>
       <Collapse.Group>
         <Collapse title="Spot" expanded>
-          <SpotForm onSubmit={spotReservation} data={props.data} />
+          <SpotForm onSubmit={spotReservation} data={props.data} selection={(area) => setArea(area)} />
         </Collapse>
-        <Collapse title="Tickets">
+        <Collapse disabled={!area} title="Tickets">
           <TicketForm onSubmit={ticketInfo} />
         </Collapse>
-        <Collapse title="Info">
+        <Collapse disabled title="Ticket info">
           <InfoForm />
         </Collapse>
+        <Collapse disabled title="Billing">
+          <BillingForm />
+        </Collapse>
       </Collapse.Group>
+      <button onClick={() => console.log(area)}>Test</button>
     </>
   );
 }

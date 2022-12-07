@@ -1,9 +1,10 @@
 import BookingForm from "./BookingForm";
 import styles from "../styles/Booking.module.css";
+import { Checkbox } from "@nextui-org/react";
 import { useState } from "react";
 
 function Booking({ spotData }) {
-  const [state, setState] = useState("close");
+  const [state, setState] = useState("open");
 
   return (
     <>
@@ -17,6 +18,9 @@ function Booking({ spotData }) {
       <div className={styles.menu + " " + styles[state]}>
         <div className={styles.close_btn}></div>
         <BookingForm data={spotData} />
+        <Checkbox size="md" defaultSelected={true}>
+          Green camping
+        </Checkbox>
       </div>
     </>
   );

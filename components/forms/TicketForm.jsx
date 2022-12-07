@@ -1,4 +1,5 @@
 import TicketButton from "../TicketButton";
+import { Checkbox } from "@nextui-org/react";
 
 function TicketForm(props) {
   const ticketInfo = (e) => {
@@ -9,28 +10,21 @@ function TicketForm(props) {
   };
 
   return (
-    <form className="tickets" onSubmit={ticketInfo} id="ticket">
-      <div>
-        <label htmlFor="regular">Standard billet</label>
-        <input type="number" name="regular" defaultValue="0" />
+    <>
+      <div className="test" onChange={() => console.log("hej")}>
+        <TicketButton name="Regular Ticket" price="799" />
+        <TicketButton name="VIP Ticket" price="1299" />
+        <TicketButton name="2 person tent (incl. the tent)" price="299" />
+        <TicketButton name="3 person tent (incl. the tent)" price="399" />
+
+        <Checkbox.Group size="sm" defaultValue={["green"]} aria-label="green camping">
+          <Checkbox value="green">Green</Checkbox>
+        </Checkbox.Group>
       </div>
       <div>
-        <label htmlFor="vip">VIP billet</label>
-        <input type="number" name="vip" defaultValue="0" />
+        <h3>Total</h3>
       </div>
-      <div>
-        <label htmlFor="greenCamping">Grøn camping</label>
-        <input type="checkbox" name="greenCamping" />
-      </div>
-      <div>
-        <label htmlFor="tent2">Opsætning af 2 personers telt (inklusiv telt)</label>
-        <input type="number" name="tent2" defaultValue="0" />
-      </div>
-      <div>
-        <label htmlFor="tent2">Opsætning af 3 personers telt (inklusiv telt)</label>
-        <input type="number" name="tent3" defaultValue="0" />
-      </div>
-    </form>
+    </>
   );
 }
 

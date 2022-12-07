@@ -2,7 +2,7 @@ import { useState } from "react";
 import Anchor from "./Anchor";
 import styles from "../styles/Header.module.css";
 
-function Header({ spotData }) {
+function Header() {
   const [state, setState] = useState("close");
 
   const openClose = () => {

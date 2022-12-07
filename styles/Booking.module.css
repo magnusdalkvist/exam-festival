@@ -37,3 +37,42 @@
 .menu.close {
   transform: translateX(100%);
 }
+
+.ticket,
+.button_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ticket p {
+  margin: 0;
+}
+
+.ticket_amount {
+  width: 2ch;
+  text-align: center;
+  border: none;
+  background: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.button_wrapper button {
+  background: #72a24e;
+  border: none;
+  border-radius: 1rem;
+  width: 2rem;
+  height: 2rem;
+  color: white;
+  text-align: center;
+  font-size: large;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
