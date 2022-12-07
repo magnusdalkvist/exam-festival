@@ -23,7 +23,6 @@
 
 .menu {
   z-index: 1000;
-  /* transform: translateX(100%); */
   background-color: white;
   position: fixed;
   top: 0;
@@ -32,10 +31,23 @@
   width: 25vw;
   box-sizing: border-box;
   min-width: 400px;
+  transition: 1s;
 }
 
 .menu.close {
   transform: translateX(100%);
+}
+
+.close_btn {
+  background-color: #72a24e;
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  margin: 1rem 0 0 1rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ticket,
