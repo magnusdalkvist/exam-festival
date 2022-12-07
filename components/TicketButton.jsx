@@ -1,3 +1,4 @@
+import styles from "../styles/Booking.module.css";
 import { useState } from "react";
 
 function TicketButton(props) {
@@ -10,22 +11,26 @@ function TicketButton(props) {
   };
 
   const increase = () => {
-    setValue(value + 1);
+    if (value < 99) {
+      setValue(value + 1);
+    }
   };
 
   return (
-    <div className="ticket">
+    <div className={styles.ticket}>
       <div>
         <p>{props.name}</p>
-        <p>{props.price},-</p>
+        <i>{props.price},-</i>
       </div>
-      <button type="button" onClick={decrease}>
-        -
-      </button>
-      <p className="ticketAmount">{value}</p>
-      <button type="button" onClick={increase}>
-        +
-      </button>
+      <div className={styles.button_wrapper}>
+        <button type="button" onClick={decrease}>
+          -
+        </button>
+        <input type="text" className={styles.ticket_amount} value={value} disabled />
+        <button type="button" onClick={increase}>
+          +
+        </button>
+      </div>
     </div>
   );
 }

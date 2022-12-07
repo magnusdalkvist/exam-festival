@@ -20,26 +20,6 @@ a {
   font-size: 3rem;
 }
 
-.spot_list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-form {
-  margin: 1rem 0;
-}
-
-.ticket {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.ticket p {
-  margin: 0;
-}
-
 /* SCHEDULE */
 
 .act {
@@ -60,4 +40,10 @@ form {
   text-decoration: none;
   font-size: 3rem;
   font-weight: 700;
+}
+
+/* NextUI fixes */
+
+.nextui-collapse-content > div {
+  padding: 0 0.5rem;
 }
