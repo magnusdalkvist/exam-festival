@@ -26,15 +26,15 @@ function BookingForm(props) {
         <Collapse disabled={!area} title="Tickets">
           <TicketForm cart={cart} setCart={setCart} />
         </Collapse>
-        <Collapse disabled title="Ticket info">
-          <InfoForm />
+        <Collapse disabled={getTotal() == 0} title="Ticket info">
+          <InfoForm cart={cart} />
         </Collapse>
         <Collapse disabled title="Billing">
           <BillingForm />
         </Collapse>
       </Collapse.Group>
-      <h3>Total:</h3>
-      <b>{getTotal()}</b>
+      <h2>Total:</h2>
+      <h3>{getTotal()},-</h3>
       <button onClick={() => console.log(area, cart)}>Test</button>
     </>
   );

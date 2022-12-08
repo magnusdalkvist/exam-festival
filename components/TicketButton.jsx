@@ -7,16 +7,16 @@ function TicketButton(props) {
 
   const addToCart = (e) => {
     if (value > 0 && e.target.innerHTML == "-") {
-      setValue(value - 1);
+      setValue((old) => old - 1);
     }
     if (value < 99 && e.target.innerHTML == "+") {
-      setValue(value + 1);
+      setValue((old) => old + 1);
     }
     cartItem.name = props.value;
     cartItem.price = props.price;
     cartItem.id = props.id;
+    cartItem.type = props.type;
     cartItem.amount = value;
-    console.log(value);
     props.addItem(cartItem);
   };
 
