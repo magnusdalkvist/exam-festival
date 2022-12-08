@@ -11,10 +11,7 @@ function contact() {
 
   return (
     <div className={styles.main}>
-      <h1 className={styles.h1}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda facere minima esse tempora placeat accusantium dolor ipsam, veritatis obcaecati vel cumque consectetur, doloremque eius ab
-        corrupti maiores similique libero error!
-      </h1>
+      <h1 className={styles.h1}>CONTACT US</h1>
       <div className={styles.contactForm}>
         <Input label="Firtsname" placeholder="John"></Input>
         <Input label="Lastname" placeholder="Doe"></Input>

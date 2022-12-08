@@ -1,16 +1,15 @@
 .contactForm {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr), 3fr, 1fr;
-  width: 50%;
+  grid-template-columns: minmax(300px, 1200px);
   gap: 1rem;
-  margin-bottom: 5rem;
 }
 
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  height: 85vh;
 }
 
 .h1 {
@@ -19,4 +18,10 @@
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 4px #79ac53;
   margin: 2rem 0 3rem;
+}
+
+.divGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
 }
