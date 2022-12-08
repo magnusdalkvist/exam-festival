@@ -28,12 +28,7 @@
 }
 
 .daysbtn:first-child {
-  padding-left: 15rem;
-}
-
-.active {
-  -webkit-text-fill-color: #79ac53;
-  color: #79ac53;
+  padding-left: 50vh;
 }
 
 .daysbtn:hover,

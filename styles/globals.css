@@ -47,3 +47,9 @@ a {
 .nextui-collapse-content > div {
   padding: 0 0.5rem;
 }
+
+/* ACTIVE SCHEDULE */
+.active {
+  -webkit-text-fill-color: #79ac53;
+  color: #79ac53;
+}
