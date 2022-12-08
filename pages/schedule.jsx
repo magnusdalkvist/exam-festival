@@ -3,12 +3,11 @@ import OneSchedule from "../components/OneSchedule";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
 
-function schedule() {
+function schedule({ bandData }) {
   const [selectDay, setSelectDay] = useState("mon");
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
   const url = "http://localhost:8080/schedule/";
   const [data, setData] = useState([]);
-  let active;
 
   //SCROLL
   const ref0 = React.useRef();
@@ -32,12 +31,14 @@ function schedule() {
   const onDayChange = (day) => {
     setSelectDay(day.substring(0, 3));
   };
+
   //SCROLL
   function scrollTo(ref) {
     if (!ref.current) return;
-    active = "active";
     ref.current.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   }
+
+  const [active, setActive] = useState(null);
 
   return (
     <div>
@@ -51,98 +52,24 @@ function schedule() {
               console.log(i);
               onDayChange(day);
               scrollTo(ref[i]);
+              {
+                () => setActive(i);
+              }
             }}
           >
-            {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}
+            <h3 className={`${active == i && "active"}`}> {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}</h3>
           </button>
         ))}
-        {/* <button
-          key={0}
-          ref={ref0}
-          className={styles.daysbtn}
-          onClick={function () {
-            onDayChange("mon");
-            scrollTo(ref0);
-          }}
-        >
-          Monday
-        </button>
-        <button
-          key={1}
-          ref={ref1}
-          className={styles.daysbtn}
-          onClick={function () {
-            onDayChange("tue");
-            scrollTo(ref1);
-          }}
-        >
-          Tuesday
-        </button>
-        <button
-          key={2}
-          ref={ref2}
-          className={styles.daysbtn}
-          onClick={function () {
-            onDayChange("wed");
-            scrollTo(ref2);
-          }}
-        >
-          Wednesday
-        </button>
-        <button
-          key={3}
-          ref={ref3}
-          className={styles.daysbtn}
-          onClick={function () {
-            onDayChange("thu");
-            scrollTo(ref3);
-          }}
-        >
-          Thursday
-        </button>
-        <button
-          key={4}
-          ref={ref4}
-          className={styles.daysbtn}
-          onClick={function () {
-            onDayChange("fri");
-            scrollTo(ref4);
-          }}
-        >
-          Friday
-        </button>
-        <button
-          key={5}
-          ref={ref5}
-          className={styles.daysbtn}
-          onClick={function () {
-            onDayChange("sat");
-            scrollTo(ref5);
-          }}
-        >
-          Saturday
-        </button>
-        <button
-          key={6}
-          ref={ref6}
-          className={styles.daysbtn}
-          onClick={function () {
-            onDayChange("sun");
-            scrollTo(ref6);
-          }}
-        >
-          Sunday
-        </button> */}
       </div>
       <div className={styles.schedule_grid}>
         <div className={styles.div1}>
-          <OneSchedule data={data.Midgard} />
+          <OneSchedule data={data.Midgard} bandData={bandData} />
         </div>
         <div className={styles.div2}>
-          <OneSchedule data={data.Jotunheim} />
+          <OneSchedule data={data.Jotunheim} bandData={bandData} />
         </div>
         <div className={styles.div3}>
-          <OneSchedule data={data.Vanaheim} />
+          <OneSchedule data={data.Vanaheim} bandData={bandData} />
         </div>
         <div className={styles.div4}>
           <h3>MIDGARD</h3>

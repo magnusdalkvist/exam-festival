@@ -1,4 +1,8 @@
+import { Link } from "@nextui-org/react";
+
 function OneSchedule(props) {
+  console.log(props.bandData);
+  // const jatak = entry.bandData[i].name.toLowerCase().trim().replaceAll(" ", "-");
   return (
     <div>
       {props.data?.map((e, i) => {
