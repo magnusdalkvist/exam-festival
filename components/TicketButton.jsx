@@ -1,20 +1,26 @@
 import styles from "../styles/Booking.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function TicketButton(props) {
-  const [value, setValue] = useState(0);
+  const [amount, setAmount] = useState(0);
+  const cartItem = {};
 
-  const decrease = () => {
-    if (value > 0) {
-      setValue(value - 1);
+  const addToCart = (e) => {
+    if (amount > 0 && e.target.innerHTML == "-") {
+      setAmount(amount - 1);
+    }
+    if (amount < 99 && e.target.innerHTML == "+") {
+      setAmount(amount + 1);
     }
   };
 
-  const increase = () => {
-    if (value < 99) {
-      setValue(value + 1);
-    }
-  };
+  useEffect(() => {
+    cartItem.name = props.value;
+    cartItem.price = props.price;
+    cartItem.id = props.id;
+    cartItem.amount = amount;
+    props.addItem(cartItem);
+  }, [amount]);
 
   return (
     <div className={styles.ticket}>
@@ -23,11 +29,11 @@ function TicketButton(props) {
         <i>{props.price},-</i>
       </div>
       <div className={styles.button_wrapper}>
-        <button type="button" onClick={decrease}>
+        <button type="button" onClick={addToCart}>
           -
         </button>
-        <input type="text" className={styles.ticket_amount} value={value} disabled />
-        <button type="button" onClick={increase}>
+        <input type="text" name={props.value} className={styles.ticket_amount} value={amount} disabled />
+        <button type="button" onClick={addToCart}>
           +
         </button>
       </div>

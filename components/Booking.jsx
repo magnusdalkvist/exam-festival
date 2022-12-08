@@ -32,9 +32,6 @@ function Booking({ spotData }) {
           </svg>
         </div>
         <BookingForm data={spotData} />
-        <Checkbox size="md" defaultSelected={true}>
-          Green camping
-        </Checkbox>
       </div>
     </>
   );

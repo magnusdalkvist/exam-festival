@@ -1,4 +1,4 @@
-import { Input, Grid } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 
 const info = [
   { label: "Firtsname", placeholder: "John" },

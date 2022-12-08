@@ -28,7 +28,13 @@ export default function SpotForm(props) {
   // };
 
   return (
-    <Radio.Group aria-label="spots" orientation="vertical" onChange={(e) => props.selection(e)}>
+    <Radio.Group
+      aria-label="spots"
+      orientation="vertical"
+      onChange={(e) => {
+        props.selection(e);
+      }}
+    >
       {props.data.map((spot, i) => {
         return (
           <Radio size="sm" key={i} value={spot.area}>
