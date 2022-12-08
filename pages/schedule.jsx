@@ -8,17 +8,19 @@ function schedule() {
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
   const url = "http://localhost:8080/schedule/";
   const [data, setData] = useState([]);
+  let active;
 
   //SCROLL
-  const ref = useState([]);
-  let ref0 = React.useRef();
-  let ref1 = React.useRef();
-  let ref2 = React.useRef();
-  let ref3 = React.useRef();
-  let ref4 = React.useRef();
-  let ref5 = React.useRef();
-  let ref6 = React.useRef();
+  const ref0 = React.useRef();
+  const ref1 = React.useRef();
+  const ref2 = React.useRef();
+  const ref3 = React.useRef();
+  const ref4 = React.useRef();
+  const ref5 = React.useRef();
+  const ref6 = React.useRef();
+  const ref = [ref0, ref1, ref2, ref3, ref4, ref5, ref6];
 
+  //FETCH
   useEffect(() => {
     fetch(url + selectDay).then((result) => {
       result.json().then((resp) => {
@@ -27,13 +29,13 @@ function schedule() {
     });
   }, [selectDay]);
 
-  //SCROLL
   const onDayChange = (day) => {
     setSelectDay(day.substring(0, 3));
   };
-
+  //SCROLL
   function scrollTo(ref) {
     if (!ref.current) return;
+    active = "active";
     ref.current.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   }
 

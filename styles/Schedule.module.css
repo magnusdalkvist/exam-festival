@@ -33,6 +33,7 @@
 
 .active {
   -webkit-text-fill-color: #79ac53;
+  color: #79ac53;
 }
 
 .daysbtn:hover,
