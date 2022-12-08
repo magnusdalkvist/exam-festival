@@ -27,8 +27,17 @@
   padding: 1rem 1.5rem 0rem;
 }
 
+/* .daysbtn:first-child {
+  padding-left: calc(50vh - 285px / 2);
+}
+.daysbtn:last-child {
+  padding-right: calc(50vh - 270px / 2);
+} */
 .daysbtn:first-child {
   padding-left: 50vh;
+}
+.daysbtn:last-child {
+  padding-right: 50vh;
 }
 
 .daysbtn:hover,

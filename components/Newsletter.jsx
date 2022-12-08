@@ -1,28 +1,28 @@
-import React from "react";
 import styles from "../styles/Newsletter.module.css";
+import { Radio, Input, Button } from "@nextui-org/react";
 
 function Newsletter() {
   return (
     <div>
-      <form>
-        <h6>SIGN UP TO OUR NEWSLETTER</h6>
-        <div className="">
-          <input type="email" name="email" id="email" placeholder="Email Address" />
-          <input type="submit" value="Sign Up" class="fit" />
+      <h6>SIGN UP TO OUR NEWSLETTER</h6>
+      <form className={styles.Form}>
+        <div className={styles.email_name}>
+          <Input fullWidth underlined clearable labelPlaceholder="FIRST NAME" initialValue="" />
+          <Input fullWidth underlined required clearable labelPlaceholder="EMAIL" initialValue="" />
+          <Button>SUBSCRIBE</Button>
         </div>
         <div className={styles.radiolist}>
-          <div>
-            <input type="radio"></input>
-            <label> Just the essential stuff, please</label>
-          </div>
-          <div>
-            <input type="radio"></input>
-            <label> I’m mostly interested in your environmental stuff</label>
-          </div>
-          <div>
-            <input type="radio"></input>
-            <label> Gimme everything! I want to know it all</label>
-          </div>
+          <Radio.Group required label="" defaultValue="">
+            <Radio size="sm" value="essential">
+              Just the essential stuff, please
+            </Radio>
+            <Radio size="sm" value="environmental">
+              I’m mostly interested in your environmental stuff
+            </Radio>
+            <Radio size="sm" value="all">
+              Gimme everything! I want to know it all
+            </Radio>
+          </Radio.Group>
         </div>
       </form>
     </div>

@@ -1,4 +1,9 @@
-.radiolist {
+.Form {
   display: flex;
-  flex-direction: column;
+}
+
+.email_name {
+}
+
+.radiolist {
 }

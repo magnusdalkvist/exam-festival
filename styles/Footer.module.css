@@ -1,7 +1,4 @@
 .footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
   grid-column-gap: 0px;
   justify-items: center;
 }
@@ -13,4 +10,26 @@
 .footer h6 {
   font-size: 1rem;
   margin: 0 0 1rem 0;
+}
+
+.Form {
+  display: flex;
+}
+
+.newsletterform {
+  display: flex;
+  justify-content: center;
+}
+.quicklinks {
+  margin: 2rem 0;
+}
+
+.heading {
+  text-align: center;
+}
+.footer_links {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
 }
