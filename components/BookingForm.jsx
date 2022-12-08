@@ -9,6 +9,14 @@ function BookingForm(props) {
   const [area, setArea] = useState(null);
   const [cart, setCart] = useState([]);
 
+  const getTotal = () => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.amount * item.price;
+    });
+    return total;
+  };
+
   return (
     <>
       <Collapse.Group>
@@ -26,7 +34,8 @@ function BookingForm(props) {
         </Collapse>
       </Collapse.Group>
       <h3>Total:</h3>
-      <button onClick={() => console.log(area, tickets)}>Test</button>
+      <b>{getTotal()}</b>
+      <button onClick={() => console.log(area, cart)}>Test</button>
     </>
   );
 }

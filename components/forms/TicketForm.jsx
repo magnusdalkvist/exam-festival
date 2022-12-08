@@ -5,14 +5,22 @@ import { useRef, useState } from "react";
 function TicketForm(props) {
   const theForm = useRef(null);
 
-  const addItem = (e) => {
+  const addItem = (cartItem) => {
+    // let cartCopy = [...props.cart];
+    // const i = props.cart.findIndex((f) => f.id === e.id);
+    // if (i > -1) {
+    //   cartCopy[i].amount++;
+    //   props.setCart(cartCopy);
+    // } else {
+    //   props.setCart((prevState) => prevState.concat(e));
+    // }
     let cartCopy = [...props.cart];
-    const i = props.cart.findIndex((f) => f.id === e.id);
+    const i = props.cart.findIndex((f) => f.id == cartItem.id);
     if (i > -1) {
-      cartCopy[i].amount++;
+      cartCopy[i].amount = cartItem.amount;
       props.setCart(cartCopy);
     } else {
-      props.setCart((prevState) => prevState.concat(e));
+      props.setCart((prevState) => prevState.concat(cartItem));
     }
   };
 

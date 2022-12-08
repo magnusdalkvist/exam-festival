@@ -2,25 +2,23 @@ import styles from "../styles/Booking.module.css";
 import { useEffect, useState } from "react";
 
 function TicketButton(props) {
-  const [amount, setAmount] = useState(0);
+  const [value, setValue] = useState(0);
   const cartItem = {};
 
   const addToCart = (e) => {
-    if (amount > 0 && e.target.innerHTML == "-") {
-      setAmount(amount - 1);
+    if (value > 0 && e.target.innerHTML == "-") {
+      setValue(value - 1);
     }
-    if (amount < 99 && e.target.innerHTML == "+") {
-      setAmount(amount + 1);
+    if (value < 99 && e.target.innerHTML == "+") {
+      setValue(value + 1);
     }
-  };
-
-  useEffect(() => {
     cartItem.name = props.value;
     cartItem.price = props.price;
     cartItem.id = props.id;
-    cartItem.amount = amount;
+    cartItem.amount = value;
+    console.log(value);
     props.addItem(cartItem);
-  }, [amount]);
+  };
 
   return (
     <div className={styles.ticket}>
@@ -32,7 +30,7 @@ function TicketButton(props) {
         <button type="button" onClick={addToCart}>
           -
         </button>
-        <input type="text" name={props.value} className={styles.ticket_amount} value={amount} disabled />
+        <input type="text" name={props.value} className={styles.ticket_amount} value={value} disabled />
         <button type="button" onClick={addToCart}>
           +
         </button>
