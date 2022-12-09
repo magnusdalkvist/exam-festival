@@ -10,17 +10,18 @@ function Footer() {
           <Newsletter />
         </div>
         <div className={styles.quicklinks}>
-          <h6>QUICK LINKS</h6>
-          <ul className="footer-links">
+          <h6 className={styles.heading}>QUICK LINKS</h6>
+          <ul className={styles.footer_links}>
             <li>
-              <Anchor href="#/about/">About Us</Anchor>
+              <Anchor href="/schedule">Schedule</Anchor>
             </li>
             <li>
-              <Anchor href="#/contact/">Contact Us</Anchor>
+              <Anchor href="/about/">About Us</Anchor>
             </li>
             <li>
-              <Anchor href="#">Schedule</Anchor>
+              <Anchor href="/contact/">Contact Us</Anchor>
             </li>
+
             <li>
               <Anchor href="/privacy-policy">Privacy Policy</Anchor>
             </li>
