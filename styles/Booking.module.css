@@ -92,3 +92,8 @@
 .test {
   padding-bottom: 3rem;
 }
+
+.info_list {
+  overflow-y: auto;
+  max-height: 50vh;
+}
