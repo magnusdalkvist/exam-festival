@@ -3,6 +3,8 @@ import Image from "next/image";
 
 export default function Henry({ data }) {
   console.log(data);
+  const src = data.band.logo;
+
   return (
     <>
       <Head>
@@ -10,15 +12,30 @@ export default function Henry({ data }) {
       </Head>
       <h1>{data.band.name}</h1>
       <p>{data.band.bio}</p>
-      {/* <Image
-        src={data.content.image.src}
-        alt={data.content.image.alt}
-        width={data.content.image.width}
-        height={data.content.image.height}
-        priority
-        sizes="(max-width: 700px) 100vw,
-        700px"
-      /> */}
+      {data.band.members.map((e, i) => (
+        <p>{e}</p>
+      ))}
+      {src.startsWith("http") ? (
+        <Image
+          src={src}
+          alt={data.band.logo.credit}
+          width={500}
+          height={500}
+          priority
+          sizes="(max-width: 500px) 100vw,
+      500px"
+        />
+      ) : (
+        <Image
+          src={"http://localhost:8080/logos/" + src}
+          alt={data.band.logo.credit}
+          width={500}
+          height={500}
+          priority
+          sizes="(max-width: 500px) 100vw,
+      500px"
+        />
+      )}
     </>
   );
 }

@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
 
-module.exports = nextConfig
+  images: {
+    domains: ["localhost", "placeimg.com"],
+    imageSizes: [],
+    deviceSizes: [400, 500, 600, 700],
+  },
+};
+
+module.exports = nextConfig;
