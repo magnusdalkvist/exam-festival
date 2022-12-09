@@ -1,23 +1,25 @@
 import styles from "../styles/Booking.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function TicketButton(props) {
   const [value, setValue] = useState(0);
   const cartItem = {};
 
   const addToCart = (e) => {
+    let modifier = 1;
     if (value > 0 && e.target.innerHTML == "-") {
-      setValue((old) => old - 1);
+      modifier = -1;
     }
     if (value < 99 && e.target.innerHTML == "+") {
-      setValue((old) => old + 1);
+      modifier = 1;
     }
     cartItem.name = props.value;
     cartItem.price = props.price;
     cartItem.id = props.id;
     cartItem.type = props.type;
-    cartItem.amount = value;
+    cartItem.amount = value + modifier;
     props.addItem(cartItem);
+    setValue((old) => old + modifier);
   };
 
   return (
