@@ -88,3 +88,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+
+.test {
+  padding-bottom: 3rem;
+}
