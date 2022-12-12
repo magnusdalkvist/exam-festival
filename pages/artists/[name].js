@@ -1,17 +1,20 @@
+import { Button } from "@nextui-org/react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "./Name.module.css";
 
 export default function Henry({ data }) {
-  console.log(data);
   const src = data.band.logo;
   const srcCredit = data.band.logoCredits;
+  const router = useRouter();
 
   return (
     <>
       <Head>
         <title>{data.band.name}</title>
       </Head>
+      <Button onClick={() => router.back()}>Go back</Button>
       <h1 className={styles.headline}>{data.band.name}</h1>
       <div className={styles.main}>
         <div className={styles.left}>
@@ -33,7 +36,7 @@ export default function Henry({ data }) {
             ) : (
               <Image src={"http://localhost:8080/logos/" + src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
             )}
-            {srcCredit.startsWith(null) ? null : <p className={styles.credits}>{srcCredit}</p>}
+            {!srcCredit ? null : <p className={styles.credits}>{srcCredit}</p>}
           </div>
         </div>
       </div>
