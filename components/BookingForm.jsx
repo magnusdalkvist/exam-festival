@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Collapse } from "@nextui-org/react";
 import styles from "../styles/Booking.module.css";
 import InfoForm from "./forms/InfoForm";
@@ -11,8 +11,10 @@ function BookingForm(props) {
   const [area, setArea] = useState();
   const [res, setRes] = useState();
   const [cart, setCart] = useState(fee);
+  const [info, setInfo] = useState([]);
 
   const reset = () => {
+    setInfo([]);
     setRes(null);
     setArea(null);
     setCart(fee);
@@ -40,14 +42,41 @@ function BookingForm(props) {
 
       fetch("http://localhost:8080/reserve-spot", options)
         .then((response) => response.json())
-        .then((response) => setRes(response));
+        .then((response) => setRes(response))
+        .catch((err) => console.error(err));
+
+      getInfo();
     }
+  };
+
+  const getInfo = () => {
+    document.querySelectorAll("form#test_form").forEach((e) => {
+      const person = {};
+      person.firstname = e.firstname.value;
+      person.lastname = e.lastname.value;
+      person.email = e.email.value;
+      person.phone = e.phone.value;
+      setInfo((info) => info.concat(person));
+    });
+  };
+
+  const completeOrder = () => {
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: res.id }),
+    };
+
+    fetch("http://localhost:8080/fullfill-reservation", options)
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
   };
 
   return (
     <>
       {!res && (
-        <Collapse.Group>
+        <Collapse.Group className={styles.collapse}>
           <Collapse title="Spot" expanded>
             <SpotForm data={props.data} selection={(area) => setArea(area)} />
           </Collapse>
@@ -59,7 +88,12 @@ function BookingForm(props) {
           </Collapse>
         </Collapse.Group>
       )}
-      {res && !res?.error && <BillingForm />}
+      {res && !res?.error && (
+        <>
+          <h3>Billing</h3>
+          <BillingForm />
+        </>
+      )}
       {res?.error && (
         <>
           <h1>Too many requests!</h1>
@@ -79,10 +113,11 @@ function BookingForm(props) {
             }
           })}
         </ul>
+        {res && <button onClick={reset}>Tilbage</button>}
+        {!res && <button onClick={reserveSpot}>Videre</button>}
+        {res && <button onClick={completeOrder}>Complete order</button>}
+        {/* <button onClick={() => console.log(info)}>show info</button> */}
       </div>
-      {res && <button onClick={() => reset()}>Tilbage</button>}
-      {!res && <button onClick={reserveSpot}>Videre</button>}
-      <button onClick={() => console.log(res)}>test</button>
     </>
   );
 }
