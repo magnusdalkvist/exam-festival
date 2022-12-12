@@ -5,7 +5,7 @@ function program(props) {
   console.log(props.bandData);
   const topArtist = props.bandData.slice(0, 12);
   const mediumArtist = props.bandData.slice(12, 24);
-  const smallArtist = props.bandData.slice(24, 80);
+  const smallArtist = props.bandData.slice(24, 60);
   return (
     <div className={styles.main}>
       <div className={styles.topArtist}>

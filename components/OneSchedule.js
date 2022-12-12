@@ -1,4 +1,5 @@
 import { Link } from "@nextui-org/react";
+import styles from "../styles/Schedule.module.css";
 
 function OneSchedule(props) {
   console.log(props.bandData);
@@ -8,7 +9,7 @@ function OneSchedule(props) {
       {props.data?.map((e, i) => {
         const link = e.act.toLowerCase().split(" ").join("_");
         return (
-          <div className="act" key={i}>
+          <div className={styles.act} key={i}>
             <Link href={"/artists/" + link}>
               <h2>{e.act}</h2>
             </Link>
