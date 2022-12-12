@@ -25,46 +25,13 @@ function Header() {
       </nav>
       <div className={styles.menu + " " + styles[state]}>
         <ul className={styles.menu_links}>
-          <Anchor
-            href="/"
-            click={() => {
-              setState("close");
-            }}
-          >
-            Home
-          </Anchor>
-          <Anchor
-            href="/booking"
-            click={() => {
-              setState("close");
-            }}
-          >
-            Booking
-          </Anchor>
-          <Anchor
-            href="/schedule"
-            click={() => {
-              setState("close");
-            }}
-          >
-            Schedule
-          </Anchor>
-          <Anchor
-            href="/contact"
-            click={() => {
-              setState("close");
-            }}
-          >
-            Contact
-          </Anchor>
-          <Anchor
-            href="/about"
-            click={() => {
-              setState("close");
-            }}
-          >
-            About
-          </Anchor>
+          <div className={styles.menu_links_wrapper} onClick={() => setState("close")}>
+            <Anchor href="/">Home</Anchor>
+            <Anchor href="/program">Program</Anchor>
+            <Anchor href="/schedule">Schedule</Anchor>
+            <Anchor href="/contact">Contact</Anchor>
+            <Anchor href="/about">About</Anchor>
+          </div>
         </ul>
       </div>
     </header>

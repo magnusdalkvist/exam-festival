@@ -13,7 +13,8 @@ function TicketButton(props) {
     if (value < 99 && e.target.innerHTML == "+") {
       modifier = 1;
     }
-    cartItem.name = props.value;
+    cartItem.value = props.value;
+    cartItem.name = props.name;
     cartItem.price = props.price;
     cartItem.id = props.id;
     cartItem.type = props.type;

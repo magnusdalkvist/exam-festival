@@ -1,7 +1,7 @@
 import styles from "../styles/Header.module.css";
 import { useRouter } from "next/router";
 
-export default function Anchor({ href, children, click }) {
+export default function Anchor({ href, children }) {
   const router = useRouter();
   let active;
 
@@ -14,7 +14,6 @@ export default function Anchor({ href, children, click }) {
       onClick={(event) => {
         event.preventDefault();
         router.push(href);
-        click();
       }}
       href={href}
       className={styles[active]}

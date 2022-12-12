@@ -18,10 +18,10 @@ function TicketForm(props) {
 
   return (
     <form ref={theForm}>
-      <TicketButton value="regular" type="ticket" name="Regular Ticket" price="799" id={0} addItem={addItem} />
-      <TicketButton value="vip" type="ticket" name="VIP Ticket" price="1299" id={1} addItem={addItem} />
-      <TicketButton value="tent2" type="service" name="2 person tent (incl. the tent)" price="299" id={2} addItem={addItem} />
-      <TicketButton value="tent3" type="service" name="3 person tent (incl. the tent)" price="399" id={3} addItem={addItem} />
+      <TicketButton value="regular" type="ticket" name="Regular Ticket" price="799" id={1} addItem={addItem} />
+      <TicketButton value="vip" type="ticket" name="VIP Ticket" price="1299" id={2} addItem={addItem} />
+      <TicketButton value="tent2" type="service" name="2 person tent (incl. the tent)" price="299" id={3} addItem={addItem} />
+      <TicketButton value="tent3" type="service" name="3 person tent (incl. the tent)" price="399" id={4} addItem={addItem} />
 
       {/* <Checkbox.Group size="sm" defaultValue={["green"]} aria-label="green camping">
         <Checkbox value="green" name="green">

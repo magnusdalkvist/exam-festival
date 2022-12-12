@@ -97,3 +97,12 @@
   overflow-y: auto;
   max-height: 50vh;
 }
+
+.info_type {
+  text-transform: uppercase;
+  color: #72a24e;
+}
+
+.cart {
+  padding: 0.75rem;
+}
