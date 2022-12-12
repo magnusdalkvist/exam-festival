@@ -1,41 +1,45 @@
+import { Button } from "@nextui-org/react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
+import styles from "./Name.module.css";
 
 export default function Henry({ data }) {
-  console.log(data);
   const src = data.band.logo;
+  const srcCredit = data.band.logoCredits;
+  const router = useRouter();
 
   return (
     <>
       <Head>
         <title>{data.band.name}</title>
       </Head>
-      <h1>{data.band.name}</h1>
-      <p>{data.band.bio}</p>
-      {data.band.members.map((e, i) => (
-        <p>{e}</p>
-      ))}
-      {src.startsWith("http") ? (
-        <Image
-          src={src}
-          alt={data.band.logo.credit}
-          width={500}
-          height={500}
-          priority
-          sizes="(max-width: 500px) 100vw,
-      500px"
-        />
-      ) : (
-        <Image
-          src={"http://localhost:8080/logos/" + src}
-          alt={data.band.logo.credit}
-          width={500}
-          height={500}
-          priority
-          sizes="(max-width: 500px) 100vw,
-      500px"
-        />
-      )}
+      <Button onClick={() => router.back()}>Go back</Button>
+      <h1 className={styles.headline}>{data.band.name}</h1>
+      <div className={styles.main}>
+        <div className={styles.left}>
+          <div>
+            <h3 className={styles.underheadline}>Bio:</h3>
+            <p className={styles.text}>{data.band.bio}</p>
+          </div>
+          <div>
+            <h3 className={styles.underheading}>Members:</h3>
+            {data.band.members.map((members, i) => (
+              <p className={styles.members}>{members}</p>
+            ))}
+          </div>
+        </div>
+        <div className={styles.outerImage}>
+          <div className="image">
+            {src.startsWith("http") ? (
+              <Image src={src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
+            ) : (
+              <Image src={"http://localhost:8080/logos/" + src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
+            )}
+            {!srcCredit ? null : <p className={styles.credits}>{srcCredit}</p>}
+          </div>
+        </div>
+      </div>
     </>
   );
 }

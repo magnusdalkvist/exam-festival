@@ -34,11 +34,12 @@ function schedule({ bandData }) {
 
   //SCROLL
   function scrollTo(ref) {
+    console.log(active);
     if (!ref.current) return;
     ref.current.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   }
 
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState("0");
 
   return (
     <div>
@@ -49,12 +50,9 @@ function schedule({ bandData }) {
             ref={ref[i]}
             className={styles.daysbtn}
             onClick={function () {
-              console.log(i);
               onDayChange(day);
               scrollTo(ref[i]);
-              {
-                () => setActive(i);
-              }
+              setActive(i);
             }}
           >
             <h3 className={`${active == i && "active"}`}> {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}</h3>
@@ -122,14 +120,6 @@ function schedule({ bandData }) {
 }
 
 export default schedule;
-
-{
-  /* <div id="dayPicker">
-{days.map((day, index) => (
-  <button onClick={() => onDayChange(day)}>{day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}</button>
-))}
-</div> */
-}
 
 // export async function getServerSideProps() {
 //   // Get data from api
