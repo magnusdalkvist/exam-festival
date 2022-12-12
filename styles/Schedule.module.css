@@ -45,6 +45,13 @@
   -webkit-text-fill-color: #79ac53;
 }
 
+.act {
+  background-color: rgba(122, 172, 83, 0.1);
+  color: #79ac53;
+  -webkit-text-fill-color: #79ac53;
+}
+
+/* GRID */
 .schedule_grid {
   display: grid;
   grid-template-columns: 0.8fr, repeat(3, 300px);
