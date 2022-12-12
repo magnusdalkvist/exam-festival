@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Radio } from "@nextui-org/react";
 
 export default function SpotForm(props) {
+  console.log(props.data);
   // let id;
 
   // const reserveSpot = async (e) => {
@@ -37,8 +38,8 @@ export default function SpotForm(props) {
     >
       {props.data.map((spot, i) => {
         return (
-          <Radio size="sm" key={i} value={spot.area}>
-            {spot.area}
+          <Radio size="sm" key={i} value={spot.area} isDisabled={spot.available == 0}>
+            {spot.area} - Available: {spot.available}
           </Radio>
         );
       })}
