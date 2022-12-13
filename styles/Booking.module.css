@@ -95,6 +95,7 @@
 .info_type {
   text-transform: uppercase;
   color: #72a24e;
+  margin: 0;
 }
 
 .collapse {
