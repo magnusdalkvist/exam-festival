@@ -8,6 +8,7 @@ function program(props) {
   const smallArtist = props.bandData.slice(24, 60);
   return (
     <div className={styles.main}>
+      <h1 className={styles.h1}>PROGRAM</h1>
       <div className={styles.topArtist}>
         {topArtist.map((e, i) => {
           const link = e.name.toLowerCase().split(" ").join("_");
@@ -44,6 +45,7 @@ function program(props) {
           );
         })}
       </div>
+      <div className={styles.svg} style={{ backgroundImage: "url(/1555186463.svg)" }}></div>
     </div>
   );
 }

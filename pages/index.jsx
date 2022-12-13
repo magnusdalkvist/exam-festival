@@ -11,12 +11,13 @@ export default function Home() {
         <meta name="description" content="GREENMARK FESTIVAL" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.splash} style={{ backgroundImage: "url(/treelines.svg)" }}>
+
+      <div className={styles.splashGroup}>
         <div className={styles.splash_titles}>
-          <h2 className={styles.splash_h2}>WE CARE ABOUT THE ENVIRONMENT</h2>
-          <h2 className={styles.splash_h2}>WE CARE ABOUT FREEDOM</h2>
-          <h2 className={styles.splash_h2}>AND HUMAN RIGHTS</h2>
-          <h2 className={styles.splash_h2}>WE CARE ABOUT OUR GREEN FUTURE</h2>
+          <h2 className={styles.splash_h2}>Sustainable sounds for a brighter future.</h2>
+          <h2 className={styles.splash_h2}>Music, nature, and community, all in one.</h2>
+          <h2 className={styles.splash_h2}>Join the eco-friendly party, and make memories.</h2>
+          <h2 className={styles.splash_h2}>Green tunes for a greener world.</h2>
         </div>
         <div className={styles.splash_calltoaction}>
           <AnchorLink className={styles.calltoaction} href="/booking">
@@ -26,6 +27,7 @@ export default function Home() {
             SCHEDULE
           </AnchorLink>
         </div>
+        <div className={styles.splash} style={{ backgroundImage: "url(/treelines.svg)" }}></div>
       </div>
       {/* <div className={styles.info}>
         <div className={styles.infomation}>
