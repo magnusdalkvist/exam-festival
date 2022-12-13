@@ -14,6 +14,7 @@
   width: 50px;
   height: 50px;
   color: white;
+  z-index: 1000;
 }
 
 .button:hover {
@@ -22,7 +23,7 @@
 }
 
 .menu {
-  padding: 1rem;
+  padding: 0 1rem 1rem;
   z-index: 1000;
   background-color: white;
   position: fixed;
@@ -35,6 +36,8 @@
   transition: 1s;
   display: flex;
   flex-direction: column;
+  transform-origin: bottom;
+  gap: 1rem;
 }
 
 .menu.close {
@@ -43,14 +46,15 @@
 
 .close_btn {
   background-color: #72a24e;
-  align-self: start;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
+  padding: 0.25rem;
   border-radius: 100px;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  z-index: 1000;
+  top: 1rem;
 }
 
 .ticket,
@@ -86,12 +90,6 @@
   font-size: large;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
 .info_type {
   text-transform: uppercase;
   color: #72a24e;
@@ -103,10 +101,20 @@
   flex-grow: 1;
   overflow-y: auto;
   overflow-x: hidden;
+  padding-top: 3rem;
 }
 
 .cart {
-  margin: 1rem 0;
+  background-color: lightgray;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  align-self: flex-end;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cart ul {
+  list-style-type: circle;
 }
 
 .cart > * {
@@ -115,4 +123,33 @@
 
 .info {
   margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .menu {
+    width: 100vw;
+    min-width: 0;
+  }
+  .button {
+    transform: scale(1);
+    opacity: 1;
+  }
+  .cart {
+    position: fixed;
+    bottom: 3.5rem;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+  }
+  .cart.close {
+    width: fit-content;
+    left: unset;
+    opacity: 0.7;
+  }
+  .cart.close ul {
+    display: none;
+  }
+  .collapse {
+    padding-bottom: 10rem;
+  }
 }

@@ -13,6 +13,7 @@ function BookingForm(props) {
   const [cart, setCart] = useState(fee);
   const [info, setInfo] = useState([]);
   const [val, setVal] = useState(false);
+  const [test, setTest] = useState(1);
 
   const reset = () => {
     setInfo([]);
@@ -138,7 +139,7 @@ function BookingForm(props) {
           <b>Please Reload</b>
         </>
       )}
-      <div className={styles.cart}>
+      <div className={styles.cart + " " + (test == 1 && styles.close)} onClick={() => setTest((p) => p * -1)}>
         <h2>Total: {getTotal()},-</h2>
         <ul>
           {cart.map((item, i) => {
@@ -151,11 +152,10 @@ function BookingForm(props) {
             }
           })}
         </ul>
-        {res && <button onClick={reset}>Tilbage</button>}
-        {!res && <button onClick={reserveSpot}>Videre</button>}
-        {res && <button onClick={completeOrder}>Complete order</button>}
-        {/* <button onClick={() => console.log(info)}>show info</button> */}
       </div>
+      {res && <button onClick={reset}>Tilbage</button>}
+      {!res && <button onClick={reserveSpot}>Videre</button>}
+      {res && <button onClick={completeOrder}>Complete order</button>}
     </>
   );
 }
