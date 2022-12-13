@@ -48,6 +48,7 @@ a {
   color: #79ac53;
 }
 
-.error {
-  border: 2px solid red;
+#error {
+  color: red;
+  border: solid red 2px;
 }

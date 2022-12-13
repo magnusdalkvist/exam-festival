@@ -12,7 +12,6 @@ function InfoForm(props) {
       amount++;
       valid += e.checkValidity();
     });
-    console.log(valid, amount);
     if (valid == amount) {
       props.validation(true);
     } else {
@@ -22,9 +21,9 @@ function InfoForm(props) {
 
   const checkForError = (e) => {
     if (e.target.value.match(e.target.pattern) != e.target.value) {
-      e.target.classList.add("error");
+      e.target.parentElement.setAttribute("id", "error");
     } else {
-      e.target.classList.remove("error");
+      e.target.parentElement.removeAttribute("id", "error");
     }
   };
 
@@ -46,10 +45,10 @@ function InfoForm(props) {
                 onChange={validate}
               >
                 <b>Ticket {i + 1}</b>
-                <Input width="100%" name="firstname" label="Firstname" placeholder="John" pattern="[A-Za-zæøåÆØÅ]{2,}" key={1 * (i * 4 + 1)} onChange={checkForError}></Input>
-                <Input width="100%" name="lastname" label="Lastname" placeholder="Doe" pattern="[A-Za-zæøåÆØÅ]{2,}" key={2 * (i * 5 + 1)}></Input>
-                <Input width="100%" name="email" label="Email" placeholder="johndoe@example.com" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" key={3 * (i * 4 + 1)}></Input>
-                <Input width="100%" name="phone" label="Phone" placeholder="12345678" pattern="[+0-9]{8,}" key={4 * (i * 4 + 1)}></Input>
+                <Input width="100%" name="firstname" label="Firstname" placeholder="John" required pattern="[A-Za-zæøåÆØÅ]{2,}" key={1 * (i * 4 + 1)} onChange={checkForError}></Input>
+                <Input width="100%" name="lastname" label="Lastname" placeholder="Doe" required pattern="[A-Za-zæøåÆØÅ]{2,}" key={2 * (i * 5 + 1)} onChange={checkForError}></Input>
+                <Input width="100%" name="email" label="Email" placeholder="johndoe@example.com" required pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" key={3 * (i * 4 + 1)} onChange={checkForError}></Input>
+                <Input width="100%" name="phone" label="Phone" placeholder="12345678" required pattern="[+0-9]{8,}" key={4 * (i * 4 + 1)} onChange={checkForError}></Input>
               </form>
             );
           }
