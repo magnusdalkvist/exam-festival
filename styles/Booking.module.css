@@ -141,6 +141,7 @@
     left: 1rem;
     right: 1rem;
     width: auto;
+    cursor: pointer;
   }
   .cart.close {
     width: fit-content;

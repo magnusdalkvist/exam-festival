@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import AnchorLink from "../components/AnchorLink";
 import Image from "next/image";
 
-export default function Home() {
+export default function Home({ setState }) {
   return (
     <>
       <Head>
@@ -20,9 +20,9 @@ export default function Home() {
           <h2 className={styles.splash_h2}>Green tunes for a greener world.</h2>
         </div>
         <div className={styles.splash_calltoaction}>
-          <AnchorLink className={styles.calltoaction} href="/booking">
+          <a className={styles.calltoaction} onClick={() => setState("open")}>
             BUY TICKETS
-          </AnchorLink>
+          </a>
           <AnchorLink className={styles.calltoaction} href="/schedule">
             SCHEDULE
           </AnchorLink>

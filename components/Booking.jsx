@@ -3,9 +3,7 @@ import styles from "../styles/Booking.module.css";
 import { Checkbox } from "@nextui-org/react";
 import { useState } from "react";
 
-function Booking({ spotData }) {
-  const [state, setState] = useState("close");
-
+function Booking({ spotData, setState, state }) {
   return (
     <>
       <div

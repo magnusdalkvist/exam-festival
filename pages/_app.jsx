@@ -2,11 +2,13 @@ import "../styles/globals.css";
 import App from "next/app";
 import Layout from "../components/Layout.js";
 import { NextUIProvider } from "@nextui-org/react";
+import { useState } from "react";
 
 function MyApp({ Component, pageProps, spotData, bandData }) {
+  const [state, setState] = useState("close");
   return (
-    <Layout spotData={spotData}>
-      <Component {...pageProps} bandData={bandData} />
+    <Layout spotData={spotData} state={state} setState={(state) => setState(state)}>
+      <Component {...pageProps} bandData={bandData} setState={(state) => setState(state)} />
     </Layout>
   );
 }
