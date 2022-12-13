@@ -21,7 +21,7 @@ export default function Home() {
         </div>
         <div className={styles.splash_calltoaction}>
           <AnchorLink className={styles.calltoaction} href="/booking">
-            TICKETS
+            BUY TICKETS
           </AnchorLink>
           <AnchorLink className={styles.calltoaction} href="/schedule">
             SCHEDULE
