@@ -3,10 +3,29 @@ import React, { useRef } from "react";
 import { Input } from "@nextui-org/react";
 
 function InfoForm(props) {
-  const theForm = useRef();
+  const refs = useRef([]);
 
   const validate = () => {
-    console.log(theForm.current.checkValidity());
+    let valid = 0;
+    let amount = 0;
+    refs.current.forEach((e) => {
+      amount++;
+      valid += e.checkValidity();
+    });
+    console.log(valid, amount);
+    if (valid == amount) {
+      props.validation(true);
+    } else {
+      props.validation(false);
+    }
+  };
+
+  const checkForError = (e) => {
+    if (e.target.value.match(e.target.pattern) != e.target.value) {
+      e.target.classList.add("error");
+    } else {
+      e.target.classList.remove("error");
+    }
   };
 
   return (
@@ -14,15 +33,23 @@ function InfoForm(props) {
       {props.cart.map((item, index) => {
         if (item.amount > 0 && item.type == "ticket") {
           const fields = [];
-
           for (let i = 0; i < item.amount; i++) {
             fields.push(
-              <form ref={theForm} id="test_form" data-type={item.value} className={styles.info} key={i} onChange={validate}>
+              <form
+                ref={(e) => {
+                  refs.current[(i + 1) * (index + 1)] = e;
+                }}
+                id="test_form"
+                data-type={item.value}
+                className={styles.info}
+                key={i}
+                onChange={validate}
+              >
                 <b>Ticket {i + 1}</b>
-                <Input width="100%" name="firstname" label="Firstname" placeholder="John" required pattern="[A-Za-z]{2,}" key={1 * (i * 4 + 1)}></Input>
-                <Input width="100%" name="lastname" label="Lastname" placeholder="Doe" required pattern="[A-Za-z]{2,}" key={2 * (i * 5 + 1)}></Input>
-                <Input width="100%" name="email" label="Email" placeholder="johndoe@example.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" key={3 * (i * 4 + 1)}></Input>
-                <Input width="100%" name="phone" label="Phone" placeholder="12345678" required pattern="[+0-9]{8,}" key={4 * (i * 4 + 1)}></Input>
+                <Input width="100%" name="firstname" label="Firstname" placeholder="John" pattern="[A-Za-zæøåÆØÅ]{2,}" key={1 * (i * 4 + 1)} onChange={checkForError}></Input>
+                <Input width="100%" name="lastname" label="Lastname" placeholder="Doe" pattern="[A-Za-zæøåÆØÅ]{2,}" key={2 * (i * 5 + 1)}></Input>
+                <Input width="100%" name="email" label="Email" placeholder="johndoe@example.com" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" key={3 * (i * 4 + 1)}></Input>
+                <Input width="100%" name="phone" label="Phone" placeholder="12345678" pattern="[+0-9]{8,}" key={4 * (i * 4 + 1)}></Input>
               </form>
             );
           }

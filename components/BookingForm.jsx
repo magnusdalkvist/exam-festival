@@ -14,6 +14,20 @@ function BookingForm(props) {
   const [info, setInfo] = useState([]);
   const [val, setVal] = useState(false);
 
+  const validate = (res) => {
+    let valid = 0;
+    let amount = 0;
+    res.current.forEach((e) => {
+      amount++;
+      valid += e.checkValidity();
+    });
+    if (valid == amount) {
+      setVal(true);
+    } else {
+      setVal(false);
+    }
+  };
+
   const reset = () => {
     setInfo([]);
     setRes(null);
@@ -32,6 +46,7 @@ function BookingForm(props) {
   };
 
   const reserveSpot = async (e) => {
+    console.log(val);
     if (cart.findIndex((e) => e.type == "ticket" && e.amount > 0) > -1 && val) {
       const options = {
         method: "PUT",

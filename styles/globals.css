@@ -47,3 +47,7 @@ a {
   -webkit-text-fill-color: #79ac53;
   color: #79ac53;
 }
+
+.error {
+  border: 2px solid red;
+}
