@@ -61,13 +61,13 @@ function schedule({ bandData }) {
       </div>
       <div className={styles.schedule_grid}>
         <div className={styles.div1}>
-          <OneSchedule data={data.Midgard} bandData={bandData} />
+          <OneSchedule className={styles.scheduleActs} data={data.Midgard} bandData={bandData} />
         </div>
         <div className={styles.div2}>
-          <OneSchedule data={data.Jotunheim} bandData={bandData} />
+          <OneSchedule className={styles.scheduleActs} data={data.Jotunheim} bandData={bandData} />
         </div>
         <div className={styles.div3}>
-          <OneSchedule data={data.Vanaheim} bandData={bandData} />
+          <OneSchedule className={styles.scheduleActs} data={data.Vanaheim} bandData={bandData} />
         </div>
         <div className={styles.div4}>
           <h3>MIDGARD</h3>

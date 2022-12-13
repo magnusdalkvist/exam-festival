@@ -3,13 +3,12 @@ import { Radio, Input, Button } from "@nextui-org/react";
 
 function Newsletter() {
   return (
-    <div>
+    <div className={styles.main}>
       <h6>SIGN UP TO OUR NEWSLETTER</h6>
-      <form className={styles.Form}>
+      <form className={styles.form}>
         <div className={styles.email_name}>
-          <Input fullWidth underlined clearable labelPlaceholder="FIRST NAME" initialValue="" />
-          <Input fullWidth underlined required clearable labelPlaceholder="EMAIL" initialValue="" />
-          <Button>SUBSCRIBE</Button>
+          <Input className={styles.input} fullWidth underlined required clearable label="First Name" Placeholder="FIRST NAME" initialValue="" />
+          <Input className={styles.input} fullWidth underlined required clearable label="Email" Placeholder="EMAIL" initialValue="" />
         </div>
         <div className={styles.radiolist}>
           <Radio.Group required label="" defaultValue="">
@@ -24,6 +23,7 @@ function Newsletter() {
             </Radio>
           </Radio.Group>
         </div>
+        <Button>SUBSCRIBE</Button>
       </form>
     </div>
   );

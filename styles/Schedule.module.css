@@ -51,6 +51,43 @@
   -webkit-text-fill-color: #79ac53;
 }
 
+.linkHere {
+  color: #79ac53;
+  -webkit-text-fill-color: #79ac53;
+  font-size: 2rem;
+}
+.breakTime {
+  color: #79ac53;
+  -webkit-text-fill-color: #79ac53;
+  font-size: 2rem;
+}
+.schedule_grid h3 {
+  color: #79ac53;
+  -webkit-text-fill-color: #79ac53;
+  font-size: 3rem;
+  margin: 2rem 0 0rem;
+}
+.schedule_grid h4 {
+  font-size: 3rem;
+  background: none;
+  border: none;
+  margin: 0;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px #79ac53;
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.scheduleActs {
+  height: 100%;
+}
+
+.oneScheduleActs {
+  display: grid;
+  height: 100%;
+}
+
 /* GRID */
 .schedule_grid {
   display: grid;
