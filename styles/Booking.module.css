@@ -15,7 +15,7 @@
   height: 50px;
   color: white;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 900;
 }
 
 .button:hover {
