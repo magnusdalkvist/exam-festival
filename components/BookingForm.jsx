@@ -14,20 +14,6 @@ function BookingForm(props) {
   const [info, setInfo] = useState([]);
   const [val, setVal] = useState(false);
 
-  const validate = (res) => {
-    let valid = 0;
-    let amount = 0;
-    res.current.forEach((e) => {
-      amount++;
-      valid += e.checkValidity();
-    });
-    if (valid == amount) {
-      setVal(true);
-    } else {
-      setVal(false);
-    }
-  };
-
   const reset = () => {
     setInfo([]);
     setRes(null);
@@ -46,7 +32,6 @@ function BookingForm(props) {
   };
 
   const reserveSpot = async (e) => {
-    console.log(val);
     if (cart.findIndex((e) => e.type == "ticket" && e.amount > 0) > -1 && val) {
       const options = {
         method: "PUT",
@@ -85,8 +70,6 @@ function BookingForm(props) {
   };
 
   const completeOrder = () => {
-    console.log(info);
-    let status;
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -114,8 +97,8 @@ function BookingForm(props) {
               ticket: order.type,
               info: order,
               green: true,
-              tent2: 1,
-              tent3: 2,
+              tent2: cart.find((e) => e.value == "tent2").amount,
+              tent3: cart.find((e) => e.value == "tent3").amount,
             }),
           };
 
