@@ -41,6 +41,14 @@ function schedule({ bandData }) {
 
   const [active, setActive] = useState("0");
 
+  const insertTimes = () => {
+    const list = [];
+    for (let i = 0; i < 24; i += 2) {
+      i < 10 ? list.push(<h2>0{i}:00</h2>) : list.push(<h2>{i}:00</h2>);
+    }
+    return <div className={styles.new_times}>{list}</div>;
+  };
+
   return (
     <div>
       <div className={styles.daypicker}>
@@ -59,7 +67,17 @@ function schedule({ bandData }) {
           </button>
         ))}
       </div>
-      <div className={styles.schedule_grid}>
+      <div className={styles.new_grid}>
+        <h3>TIME</h3>
+        <h3>MIDGARD</h3>
+        <h3>JOTUNHEIM</h3>
+        <h3>VANAHEIM</h3>
+        {insertTimes()}
+        <OneSchedule data={data.Midgard} bandData={bandData} />
+        <OneSchedule data={data.Jotunheim} bandData={bandData} />
+        <OneSchedule data={data.Vanaheim} bandData={bandData} />
+      </div>
+      {/* <div className={styles.schedule_grid}>
         <div className={styles.div1}>
           <OneSchedule className={styles.scheduleActs} data={data.Midgard} bandData={bandData} />
         </div>
@@ -114,7 +132,7 @@ function schedule({ bandData }) {
         <div className={styles.div18}>
           <h4>22:00</h4>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
