@@ -1,11 +1,13 @@
 .form {
-  padding-top: ;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
 .email_name {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .radiolist {
@@ -17,4 +19,21 @@
 
 .main {
   padding-top: 2rem;
+}
+
+/* Make the page responsive */
+@media (max-width: 600px) {
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .email_name {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1rem;
+  }
 }

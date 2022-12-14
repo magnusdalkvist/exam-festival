@@ -67,15 +67,17 @@ function schedule({ bandData }) {
           </button>
         ))}
       </div>
-      <div className={styles.new_grid}>
-        <h3>TIME</h3>
-        <h3>MIDGARD</h3>
-        <h3>JOTUNHEIM</h3>
-        <h3>VANAHEIM</h3>
-        {insertTimes()}
-        <OneSchedule data={data.Midgard} bandData={bandData} />
-        <OneSchedule data={data.Jotunheim} bandData={bandData} />
-        <OneSchedule data={data.Vanaheim} bandData={bandData} />
+      <div className={styles.gridWrapper}>
+        <div className={styles.new_grid}>
+          <h3>TIME</h3>
+          <h3>MIDGARD</h3>
+          <h3>JOTUNHEIM</h3>
+          <h3>VANAHEIM</h3>
+          {insertTimes()}
+          <OneSchedule data={data.Midgard} bandData={bandData} />
+          <OneSchedule data={data.Jotunheim} bandData={bandData} />
+          <OneSchedule data={data.Vanaheim} bandData={bandData} />
+        </div>
       </div>
       {/* <div className={styles.schedule_grid}>
         <div className={styles.div1}>

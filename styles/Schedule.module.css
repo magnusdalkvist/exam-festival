@@ -158,6 +158,12 @@
   display: grid;
   grid-template-columns: auto repeat(3, 1fr);
   gap: 1rem;
+  max-width: min-content;
+}
+
+.gridWrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .new_grid h3 {
@@ -182,4 +188,25 @@
   text-align: center;
   padding: 0 1rem;
   margin: 0;
+}
+
+/* Make the page responsive */
+@media (max-width: 600px) {
+  .new_act,
+  .new_times h2 {
+    background-color: rgba(122, 172, 83, 0.1);
+    color: #79ac53;
+    -webkit-text-fill-color: #79ac53;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+  }
+
+  .linkHere {
+    color: #79ac53;
+    -webkit-text-fill-color: #79ac53;
+    font-size: 1rem;
+  }
 }

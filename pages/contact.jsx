@@ -1,26 +1,50 @@
 import React from "react";
-import { Input, Textarea, Dropdown, Button } from "@nextui-org/react";
+import { Input, Textarea, Dropdown, Button, useInput } from "@nextui-org/react";
 import styles from "../styles/Contact.module.css";
 
 function contact() {
   const [selected, setSelected] = React.useState(new Set(["Choose one"]));
+  const { value, reset, bindings } = useInput("");
 
   const selectedValue = React.useMemo(() => Array.from(selected).join(", ").replaceAll("_", " "), [selected]);
+  const validateEmail = (value) => {
+    return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+  };
 
-  const info = [
-    { label: "Firtsname", placeholder: "John" },
-    { label: "Lastname", placeholder: "Doe" },
-    { label: "Email", placeholder: "johnDoe@example.com" },
-    { label: "Message", placeholder: "Hi, my name is" },
-  ];
+  const helper = React.useMemo(() => {
+    if (!value)
+      return {
+        text: "",
+        color: "",
+      };
+    const isValid = validateEmail(value);
+    return {
+      text: isValid ? "Correct email" : "Enter a valid email",
+      color: isValid ? "success" : "error",
+    };
+  }, [value]);
 
   return (
     <div className={styles.main}>
       <h1 className={styles.h1}>CONTACT US</h1>
       <div className={styles.contactForm}>
-        <Input label="Firtsname" clearable labelPlaceholder="John"></Input>
-        <Input label="Lastname" clearable labelPlaceholder="Doe"></Input>
-        <Input label="Email" clearable labelPlaceholder="johnDoe@example.com"></Input>
+        <Input clearable label="Full Name" placeholder="John Doe" helperText="Enter your Full Name" />
+        <Input
+          className={styles.input}
+          {...bindings}
+          clearable
+          shadow={false}
+          onClearClick={reset}
+          status={helper.color}
+          color={helper.color}
+          helperColor={helper.color}
+          helperText={helper.text}
+          type="email"
+          label="Email"
+          placeholder="johndoe@example.com"
+          helperText="Enter your Email"
+        />
+
         <Dropdown label="Reason for contact">
           <Dropdown.Button color="secondary" css={{ tt: "capitalize" }} flat>
             {selectedValue}
@@ -40,9 +64,10 @@ function contact() {
             <Dropdown.Item key="press">Press enquiries</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Textarea label="Message" labelPlaceholder="Hi, lorem ipsum"></Textarea>
+        <Textarea label="Message" placeholder="Hi, im writing because ..." helperText="Write your message here"></Textarea>
         <Button>SEND</Button>
       </div>
+      <div className={styles.splash} style={{ backgroundImage: "url(/treelines.svg)" }}></div>
     </div>
   );
 }

@@ -1,6 +1,13 @@
 .footer {
-  grid-column-gap: 0px;
-  justify-items: center;
+  display: grid;
+  place-items: center;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 0.5fr;
+  gap: 3rem;
+  max-width: 1000px;
 }
 
 .footer a {
@@ -9,7 +16,9 @@
 .footer ul {
   padding: 0;
 }
-
+.copy {
+  text-align: center;
+}
 .footer h6 {
   font-size: 1rem;
   margin: 0 0 1rem 0;
@@ -20,27 +29,34 @@
 }
 
 .newsletterform {
-  display: flex;
-  justify-content: center;
 }
 .quicklinks {
   margin: 2rem 0;
 }
 
 .heading {
-  text-align: center;
 }
 .footer_links {
   list-style: none;
   text-decoration: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 1rem;
-  justify-content: center;
 }
 
 /* Make the page responsive */
 @media (max-width: 600px) {
+  .footer {
+  }
+
+  .footerGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1000px;
+    justify-content: center;
+  }
+
   .footer_links {
     list-style: none;
     text-decoration: none;
