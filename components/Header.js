@@ -27,6 +27,7 @@ function Header() {
         <ul className={styles.menu_links}>
           <div className={styles.menu_links_wrapper} onClick={() => setState("close")}>
             <Anchor href="/">Home</Anchor>
+            <Anchor href="/tickets">Tickets</Anchor>
             <Anchor href="/program">Program</Anchor>
             <Anchor href="/schedule">Schedule</Anchor>
             <Anchor href="/contact">Contact</Anchor>

@@ -30,9 +30,8 @@ function Footer() {
             </li>
           </ul>
         </div>
+        <div>&copy;2022 Lasse & son</div>
       </footer>
-
-      <div>&copy;2022 Lasse & son</div>
     </>
   );
 }
