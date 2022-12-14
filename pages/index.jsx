@@ -16,8 +16,8 @@ export default function Home({ setState }) {
         <div className={styles.splash_titles}>
           <h2 className={styles.splash_h2}>Sustainable sounds for a brighter future.</h2>
           <h2 className={styles.splash_h2}>Music, nature, and community, all in one.</h2>
-          <h2 className={styles.splash_h2}>Join the eco-friendly party, and make memories.</h2>
-          <h2 className={styles.splash_h2}>Green tunes for a greener world.</h2>
+          <h2 className={styles.splash_h2}>Be part of a thrilling, environmentally-friendly 7-day party</h2>
+          <h2 className={styles.splash_h2}>memories that will last a lifetime.</h2>
         </div>
         <div className={styles.splash_calltoaction}>
           <a className={styles.calltoaction} onClick={() => setState("open")}>

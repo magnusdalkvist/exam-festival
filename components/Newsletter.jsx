@@ -1,5 +1,5 @@
 import styles from "../styles/Newsletter.module.css";
-import { Radio, Input, useInput, Button, spacer, Spacer } from "@nextui-org/react";
+import { Radio, Input, useInput, Button, css, Spacer } from "@nextui-org/react";
 import React from "react";
 
 function Newsletter() {
@@ -45,7 +45,7 @@ function Newsletter() {
         </div>
         <div className={styles.radiolist}>
           <Radio.Group required aria-label="radiolist" defaultValue="">
-            <Radio aria-label="essential" size="sm" value="essential">
+            <Radio aria-label="essential" size="sm" value="essential" css={}>
               Just the essential stuff, please
             </Radio>
             <Radio aria-label="environmental" size="sm" value="environmental">
