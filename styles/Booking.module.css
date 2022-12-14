@@ -136,14 +136,14 @@
     opacity: 1;
   }
   .cart {
-    position: fixed;
     bottom: 3.5rem;
-    left: 1rem;
-    right: 1rem;
-    width: auto;
+    width: 100%;
     cursor: pointer;
   }
   .cart.close {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
     width: fit-content;
     left: unset;
     opacity: 0.7;
@@ -152,6 +152,5 @@
     display: none;
   }
   .collapse {
-    padding-bottom: 10rem;
   }
 }
