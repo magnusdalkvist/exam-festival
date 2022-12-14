@@ -1,14 +1,14 @@
 import { Input } from "@nextui-org/react";
 
 const info = [
-  { label: "Firtsname", placeholder: "John" },
-  { label: "Lastname", placeholder: "Doe" },
-  { label: "Email", placeholder: "john@example.com" },
-  { label: "Mobile", placeholder: "12345678" },
-  { label: "Address 1", placeholder: "Street and number" },
-  { label: "Address 2 (optional)", placeholder: "Apartment, building, floor" },
-  { label: "City", placeholder: "City name" },
-  { label: "Zip", placeholder: "1234" },
+  { name: "firstname", label: "Firtsname", placeholder: "John" },
+  { name: "lastname", label: "Lastname", placeholder: "Doe" },
+  { name: "email", label: "Email", placeholder: "john@example.com" },
+  { name: "mobile", label: "Mobile", placeholder: "12345678" },
+  { name: "adress1", label: "Address 1", placeholder: "Street and number" },
+  { name: "adress2", label: "Address 2 (optional)", placeholder: "Apartment, building, floor" },
+  { name: "city", label: "City", placeholder: "City name" },
+  { name: "zip", label: "Zip", placeholder: "1234" },
 ];
 
 function InfoForm(props) {
@@ -20,7 +20,7 @@ function InfoForm(props) {
   return (
     <div className="grid">
       {info.map((info, i) => {
-        return <Input width="100%" clearable label={info.label} placeholder={info.placeholder} key={i} />;
+        return <Input width="100%" clearable name={info.name} label={info.label} placeholder={info.placeholder} key={i} />;
       })}
     </div>
   );

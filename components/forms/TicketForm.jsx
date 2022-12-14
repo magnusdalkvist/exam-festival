@@ -23,11 +23,11 @@ function TicketForm(props) {
       <TicketButton value="tent2" type="service" name="2 person tent (incl. the tent)" price="299" id={3} addItem={addItem} />
       <TicketButton value="tent3" type="service" name="3 person tent (incl. the tent)" price="399" id={4} addItem={addItem} />
 
-      {/* <Checkbox.Group size="sm" defaultValue={["green"]} aria-label="green camping">
+      <Checkbox.Group size="sm" defaultValue={["green"]} aria-label="green camping">
         <Checkbox value="green" name="green">
           Green camping
         </Checkbox>
-      </Checkbox.Group> */}
+      </Checkbox.Group>
     </form>
   );
 }

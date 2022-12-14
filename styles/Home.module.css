@@ -35,8 +35,7 @@
   -webkit-text-stroke: 1.5px #72a24e;
   -webkit-text-fill-color: transparent;
   margin: 0;
-  text-align: justify;
-  text-justify: newspaper;
+  text-align: center;
 }
 
 .splash_calltoaction {

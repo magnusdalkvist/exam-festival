@@ -11,14 +11,14 @@ function Newsletter() {
           <Input className={styles.input} fullWidth underlined required clearable label="Email" Placeholder="EMAIL" initialValue="" />
         </div>
         <div className={styles.radiolist}>
-          <Radio.Group required label="" defaultValue="">
-            <Radio size="sm" value="essential">
+          <Radio.Group required aria-label="radiolist" defaultValue="">
+            <Radio aria-label="essential" size="sm" value="essential">
               Just the essential stuff, please
             </Radio>
-            <Radio size="sm" value="environmental">
+            <Radio aria-label="environmental" size="sm" value="environmental">
               I’m mostly interested in your environmental stuff
             </Radio>
-            <Radio size="sm" value="all">
+            <Radio aria-label="all" size="sm" value="all">
               Gimme everything! I want to know it all
             </Radio>
           </Radio.Group>

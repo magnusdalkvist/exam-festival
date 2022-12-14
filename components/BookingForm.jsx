@@ -13,13 +13,14 @@ function BookingForm(props) {
   const [cart, setCart] = useState(fee);
   const [info, setInfo] = useState([]);
   const [val, setVal] = useState(false);
-  const [test, setTest] = useState(1);
+  const [display, setDisplay] = useState(1);
 
   const reset = () => {
     setInfo([]);
     setRes(null);
     setArea(null);
     setCart(fee);
+    setVal(false);
   };
 
   const getTotal = () => {
@@ -98,8 +99,8 @@ function BookingForm(props) {
               ticket: order.type,
               info: order,
               green: true,
-              tent2: cart.find((e) => e.value == "tent2").amount,
-              tent3: cart.find((e) => e.value == "tent3").amount,
+              tent2: cart.find((e) => e.value == "tent2")?.amount,
+              tent3: cart.find((e) => e.value == "tent3")?.amount,
             }),
           };
 
@@ -128,10 +129,11 @@ function BookingForm(props) {
         </Collapse.Group>
       )}
       {res && !res?.error && (
-        <>
-          <h3>Billing</h3>
-          <BillingForm />
-        </>
+        <Collapse.Group className={styles.collapse}>
+          <Collapse title="Billing" expanded>
+            <BillingForm />
+          </Collapse>
+        </Collapse.Group>
       )}
       {res?.error && (
         <>
@@ -139,7 +141,7 @@ function BookingForm(props) {
           <b>Please Reload</b>
         </>
       )}
-      <div className={styles.cart + " " + (test == 1 && styles.close)} onClick={() => setTest((p) => p * -1)}>
+      <div className={styles.cart + " " + (display == 1 && styles.close)} onClick={() => setDisplay((p) => p * -1)}>
         <h2>Total: {getTotal()},-</h2>
         <ul>
           {cart.map((item, i) => {
@@ -154,7 +156,7 @@ function BookingForm(props) {
         </ul>
       </div>
       {res && <button onClick={reset}>Tilbage</button>}
-      {!res && <button onClick={reserveSpot}>Videre</button>}
+      {!res && <button onClick={reserveSpot}>{val ? "Continue to payment" : "Not valid"}</button>}
       {res && <button onClick={completeOrder}>Complete order</button>}
     </>
   );
