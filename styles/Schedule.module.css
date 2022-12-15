@@ -69,12 +69,17 @@
   display: grid;
   grid-template-columns: auto repeat(3, 1fr);
   gap: 1rem;
+  max-width: 1000px;
 }
 
 .new_grid h3 {
   font-size: 2rem;
   color: #79ac53;
   text-align: center;
+}
+
+.new_grid h2 {
+  margin: 0;
 }
 
 .hidden {
@@ -88,11 +93,9 @@
   gap: 1rem;
 }
 
-.new_act,
-.new_times h2 {
+.new_act {
   background-color: rgba(122, 172, 83, 0.1);
   color: #79ac53;
-  -webkit-text-fill-color: #79ac53;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,11 +104,18 @@
   margin: 0;
 }
 
-.new_times h2 {
+.new_act h2 {
+  font-size: 1.25rem;
+}
+
+.new_times {
   background: none;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: #79ac53 2px;
-  font-size: 3rem;
+  font-size: 2rem;
+  display: grid;
+  align-items: center;
+  text-align: center;
 }
 
 /* Make the page responsive */
