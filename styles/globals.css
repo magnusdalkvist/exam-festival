@@ -24,9 +24,12 @@ a {
 }
 
 .collapsegroup h3,
-.collapsegroup p,
-.collapsegroup path {
+.collapsegroup p {
   color: #f2f2f2 !important;
+}
+
+.collapsegroup path {
+  stroke: #f2f2f2 !important;
 }
 
 footer {
