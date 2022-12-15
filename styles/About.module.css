@@ -10,6 +10,21 @@
   max-width: 60%;
 }
 
+.collapsegroup {
+  background-color: #7aac533e;
+  border: 2px solid #79ac53;
+}
+
+.collapseHeadline {
+  color: #f2f2f2;
+}
+.nextui-c-hPzDAx {
+  color: #f2f2f2;
+}
+.nextui-collapse-title {
+  color: #f2f2f2;
+}
+
 .main {
   padding-bottom: 2rem;
   background-image: url(/1555186463.svg);
