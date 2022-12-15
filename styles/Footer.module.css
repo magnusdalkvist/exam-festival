@@ -30,9 +30,6 @@
 
 /* Make the page responsive */
 @media (max-width: 600px) {
-  .footer {
-  }
-
   .footerGrid {
     display: flex;
     flex-wrap: wrap;

@@ -50,7 +50,7 @@ function schedule({ bandData }) {
   };
 
   return (
-    <div>
+    <div className={styles.main}>
       <div className={styles.daypicker}>
         {days.map((day, i) => (
           <button
@@ -69,7 +69,7 @@ function schedule({ bandData }) {
       </div>
       <div className={styles.gridWrapper}>
         <div className={styles.new_grid}>
-          <h3>TIME</h3>
+          <h3 className={styles.hidden}>TIME</h3>
           <h3>MIDGARD</h3>
           <h3>JOTUNHEIM</h3>
           <h3>VANAHEIM</h3>
