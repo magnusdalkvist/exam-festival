@@ -36,6 +36,11 @@ footer {
   background-color: #2a2a48;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+}
+
 /* SCHEDULE */
 
 .act {
