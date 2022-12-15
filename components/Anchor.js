@@ -1,7 +1,7 @@
 import styles from "../styles/Header.module.css";
 import { useRouter } from "next/router";
 
-export default function Anchor({ href, children }) {
+export default function Anchor({ href, children, className }) {
   const router = useRouter();
   let active;
 
@@ -16,7 +16,7 @@ export default function Anchor({ href, children }) {
         router.push(href);
       }}
       href={href}
-      className={styles[active]}
+      className={className + " " + styles[active]}
     >
       {children}
     </a>

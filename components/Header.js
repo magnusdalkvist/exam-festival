@@ -16,8 +16,11 @@ function Header() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <Anchor className={styles.logo} href="/">
+        <Anchor className={styles.logo_large} href="/">
           Greenmark
+        </Anchor>
+        <Anchor className={styles.logo_small} href="/">
+          GM
         </Anchor>
         <div className={styles.burger_wrapper} onClick={openClose}>
           <div className={styles.hamburger + " " + styles[state]}></div>

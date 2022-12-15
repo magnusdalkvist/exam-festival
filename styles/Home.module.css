@@ -13,8 +13,13 @@
 
 .splashGroup {
   width: 100%;
-  height: 100vh;
-  padding-top: 100px;
+  min-height: 100vh;
+  padding: 100px 1rem;
+  background-image: url(/treelines.svg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  box-sizing: border-box;
 }
 
 .splash_titles {
@@ -63,6 +68,7 @@
   letter-spacing: 0.05em;
   flex: 1;
   min-width: fit-content;
+  max-width: 200px;
   border: 2px solid #72a24e;
   color: #72a24e;
 }

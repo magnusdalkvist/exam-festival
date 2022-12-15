@@ -7,7 +7,7 @@ function Booking({ spotData, setState, state }) {
   return (
     <>
       <div
-        className={styles.button}
+        className={styles.button + " " + styles[state]}
         onClick={() => {
           setState("open");
         }}
@@ -17,7 +17,6 @@ function Booking({ spotData, setState, state }) {
           <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z" />
         </svg>
       </div>
-      <div></div>
       <div className={styles.menu + " " + styles[state]}>
         <div
           className={styles.close_btn}

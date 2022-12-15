@@ -1,6 +1,5 @@
 .button {
-  transition: 350ms;
-  transform: scale(0.9);
+  transform: scale(0.9) translate(150%);
   opacity: 0.5;
   position: fixed;
   display: flex;
@@ -16,10 +15,16 @@
   color: white;
   cursor: pointer;
   z-index: 900;
+  transition: 350ms;
 }
 
-.button:hover {
-  transform: scale(1);
+.button.close {
+  transition: 350ms;
+  transform: scale(0.9) translate(0);
+}
+
+.button.close:hover {
+  transform: scale(1) translate(0);
   opacity: 1;
 }
 
@@ -35,6 +40,7 @@
   box-sizing: border-box;
   min-width: 400px;
   transition: 1s;
+  transition-delay: 50ms;
   display: flex;
   flex-direction: column;
   transform-origin: bottom;
@@ -43,6 +49,7 @@
 
 .menu.close {
   transform: translateX(100%);
+  transition-delay: 0;
 }
 
 .close_btn {
@@ -150,7 +157,5 @@
   }
   .cart.close ul {
     display: none;
-  }
-  .collapse {
   }
 }

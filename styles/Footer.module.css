@@ -1,13 +1,16 @@
 .footer {
   display: grid;
   place-items: center;
+  color: #79ac53;
+  padding: 1rem;
 }
 
 .footerGrid {
   display: grid;
-  grid-template-columns: 2fr 0.5fr;
+  grid-template-columns: 2fr auto;
   gap: 3rem;
-  max-width: 1000px;
+  width: 100%;
+  max-width: 800px;
 }
 
 .footer a {
@@ -16,26 +19,7 @@
 .footer ul {
   padding: 0;
 }
-.copy {
-  text-align: center;
-}
-.footer h6 {
-  font-size: 1rem;
-  margin: 0 0 1rem 0;
-}
 
-.Form {
-  display: flex;
-}
-
-.newsletterform {
-}
-.quicklinks {
-  margin: 2rem 0;
-}
-
-.heading {
-}
 .footer_links {
   list-style: none;
   text-decoration: none;

@@ -3,28 +3,28 @@ import { Radio, Input, useInput, Button, css, Spacer } from "@nextui-org/react";
 import React from "react";
 
 function Newsletter() {
-  const { value, reset, bindings } = useInput("");
+  // const { value, reset, bindings } = useInput("");
 
-  const validateEmail = (value) => {
-    return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
-  };
+  // const validateEmail = (value) => {
+  //   return value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+  // };
 
-  const helper = React.useMemo(() => {
-    if (!value)
-      return {
-        text: "",
-        color: "",
-      };
-    const isValid = validateEmail(value);
-    return {
-      text: isValid ? "Correct email" : "Enter a valid email",
-      color: isValid ? "success" : "error",
-    };
-  }, [value]);
+  // const helper = React.useMemo(() => {
+  //   if (!value)
+  //     return {
+  //       text: "",
+  //       color: "",
+  //     };
+  //   const isValid = validateEmail(value);
+  //   return {
+  //     text: isValid ? "Correct email" : "Enter a valid email",
+  //     color: isValid ? "success" : "error",
+  //   };
+  // }, [value]);
 
   return (
     <div className={styles.main}>
-      <h6>SIGN UP TO OUR NEWSLETTER</h6>
+      {/* <h6>SIGN UP TO OUR NEWSLETTER</h6>
       <form className={styles.form}>
         <div className={styles.email_name}>
           <Input clearable label="Name" placeholder="Enter your name" />
@@ -45,7 +45,7 @@ function Newsletter() {
         </div>
         <div className={styles.radiolist}>
           <Radio.Group required aria-label="radiolist" defaultValue="">
-            <Radio aria-label="essential" size="sm" value="essential" css={}>
+            <Radio aria-label="essential" size="sm" value="essential">
               Just the essential stuff, please
             </Radio>
             <Radio aria-label="environmental" size="sm" value="environmental">
@@ -57,6 +57,27 @@ function Newsletter() {
           </Radio.Group>
           <Spacer y={0.8}></Spacer>
           <Button>SUBSCRIBE</Button>
+        </div>
+      </form> */}
+      <h1>NEWSLETTER</h1>
+      <form className={styles.form}>
+        <div className={styles.email}>
+          <input type="text" placeholder="Email" name="email" />
+          <input type="submit" value="SEND" />
+        </div>
+        <div className={styles.radiolist}>
+          <label>
+            <input type="radio" name="radio" defaultChecked />
+            Just the essential stuff, please
+          </label>
+          <label>
+            <input type="radio" name="radio" />
+            I’m mostly interested in your environmental stuff
+          </label>
+          <label>
+            <input type="radio" name="radio" />
+            Gimme everything! I want to know it all
+          </label>
         </div>
       </form>
     </div>

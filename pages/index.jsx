@@ -27,7 +27,6 @@ export default function Home({ setState }) {
             SCHEDULE
           </AnchorLink>
         </div>
-        <div className={styles.splash} style={{ backgroundImage: "url(/treelines.svg)" }}></div>
       </div>
       {/* <div className={styles.info}>
         <div className={styles.infomation}>
