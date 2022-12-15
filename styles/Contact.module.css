@@ -43,13 +43,6 @@
   margin: 0 auto;
 }
 
-.collapsegroup {
-  background-color: #7aac5358;
-  border: 2px solid #79ac53;
-}
-
-.main {
-}
 .wrapper {
   display: flex;
   flex-direction: column;
