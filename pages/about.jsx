@@ -7,7 +7,7 @@ function about() {
       <div className={styles.main}>
         <div className={styles.wrapper}>
           <h1 className={styles.h1}>ABOUT US</h1>
-          <Collapse.Group bordered className={styles.collapsegroup}>
+          <Collapse.Group bordered className={styles.collapseGroup + " collapsegroup"}>
             <Collapse title="Celebrating Sustainable Music">
               <div className={styles.info}>
                 <p>
