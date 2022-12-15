@@ -2,16 +2,21 @@ import React from "react";
 import styles from "../styles/Tickets.module.css";
 import { Collapse } from "@nextui-org/react";
 
-function tickets() {
+function tickets({ setState }) {
   return (
     <div>
       <div className={styles.main}>
-        <h1 className={styles.h1}>TICKETS</h1>
+        <div className={styles.topBar}>
+          <h1 className={styles.h1}>TICKETS</h1>
+          <a className={styles.calltoaction} onClick={() => setState("open")}>
+            BUY TICKETS HERE
+          </a>
+        </div>
         <div className={styles.wrapper}>
           <div className={styles.ticketOptions}>
             <h2 className={styles.h2}>Ticket options:</h2>
             <Collapse.Group bordered className={styles.collapseGroup + " collapsegroup"}>
-              <Collapse>
+              <Collapse expanded title="Regular ticket">
                 <div className={styles.info}>
                   <p>
                     This option grants you access to the festival for the entire duration. The regular ticket costs 799,- and gives you access to all the music, art, and entertainment at the festival.
@@ -31,7 +36,7 @@ function tickets() {
           <div className={styles.campingOptions}>
             <h2 className={styles.h2}>Campsite options:</h2>
             <Collapse.Group bordered className="collapsegroup">
-              <Collapse title="Fixed booking fee">
+              <Collapse expanded title="Fixed booking fee">
                 <div className={styles.info}>
                   <p>For 99,-, you can reserve a spot in the campsite for your own tent. This fee covers the cost of your campsite spot for the duration of the festival.</p>
                 </div>
