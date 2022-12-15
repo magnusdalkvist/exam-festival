@@ -60,19 +60,20 @@
 }
 
 /* NEW GRID */
-.new_grid {
-  display: grid;
-  grid-template-columns: auto repeat(3, 1fr);
-  gap: 1rem;
-  max-width: min-content;
-}
-
 .gridWrapper {
   display: flex;
   justify-content: center;
 }
 
+.new_grid {
+  display: grid;
+  grid-template-columns: auto repeat(3, 1fr);
+  gap: 1rem;
+}
+
 .new_grid h3 {
+  font-size: 2rem;
+  color: #79ac53;
   text-align: center;
 }
 
@@ -96,14 +97,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 1rem;
+  padding: 1rem;
   margin: 0;
 }
 
 .new_times h2 {
   background: none;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: #79ac53 2px solid;
+  -webkit-text-stroke: #79ac53 2px;
+  font-size: 3rem;
 }
 
 /* Make the page responsive */
