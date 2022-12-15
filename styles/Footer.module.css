@@ -8,7 +8,7 @@
 .footerGrid {
   display: grid;
   grid-template-columns: 2fr auto;
-  gap: 3rem;
+  gap: 5rem;
   width: 100%;
   max-width: 800px;
 }

@@ -12,7 +12,7 @@ function BookingForm(props) {
   const [res, setRes] = useState();
   const [cart, setCart] = useState(fee);
   const [info, setInfo] = useState([]);
-  const [val, setVal] = useState(false);
+  const [val, setVal] = useState(0);
   const [display, setDisplay] = useState(1);
 
   const reset = () => {
@@ -20,34 +20,15 @@ function BookingForm(props) {
     setRes(null);
     setArea(null);
     setCart(fee);
-    setVal(false);
+    setVal(0);
   };
 
   const getTotal = () => {
     let total = 0;
-
     cart.forEach((item) => {
       total += item.amount * item.price;
     });
-
     return total;
-  };
-
-  const reserveSpot = async (e) => {
-    if (cart.findIndex((e) => e.type == "ticket" && e.amount > 0) > -1 && val) {
-      const options = {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ area: area, amount: 1 }),
-      };
-
-      fetch("http://localhost:8080/reserve-spot", options)
-        .then((response) => response.json())
-        .then((response) => setRes(response))
-        .catch((err) => console.error(err));
-
-      getInfo();
-    }
   };
 
   const getInfo = () => {
@@ -71,75 +52,106 @@ function BookingForm(props) {
     });
   };
 
+  const reserveSpot = async (e) => {
+    let regular = cart.find((i) => i.value == "regular")?.amount;
+    regular = regular === undefined ? 0 : regular;
+    let vip = cart.find((i) => i.value == "vip")?.amount;
+    vip = vip === undefined ? 0 : vip;
+    let tent2 = cart.find((i) => i.value == "tent2")?.amount;
+    tent2 = tent2 === undefined ? 0 : tent2;
+    let tent3 = cart.find((i) => i.value == "tent3")?.amount;
+    tent3 = tent3 === undefined ? 0 : tent3;
+
+    if (regular + vip >= tent2 + tent3) {
+      if (cart.findIndex((e) => e.type == "ticket" && e.amount > 0) > -1 && val == 1) {
+        const options = {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ area: area, amount: 1 }),
+        };
+
+        fetch("http://localhost:8080/reserve-spot", options)
+          .then((response) => response.json())
+          .then((response) => setRes(response))
+          .catch((err) => console.error(err));
+
+        getInfo();
+      }
+    } else {
+      alert("The number of tents must match the number of tickets");
+    }
+  };
+
   const completeOrder = () => {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: res.id }),
-    };
+    if (val == 2) {
+      const options = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: res.id }),
+      };
 
-    fetch("http://localhost:8080/fullfill-reservation", options)
-      .then((response) => response.json())
-      .then((response) => sendData(response))
-      .catch((err) => console.error(err));
+      fetch("http://localhost:8080/fullfill-reservation", options)
+        .then((response) => response.json())
+        .then((response) => sendData(response))
+        .catch((err) => console.error(err));
 
-    const sendData = (response) => {
-      info.forEach((order) => {
-        if (response.status != 500) {
-          const options = {
-            method: "POST",
-            headers: {
-              apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlhcmRva2RjeWVpeGptaGhteGV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAxNzE5OTYsImV4cCI6MTk4NTc0Nzk5Nn0.uig3ma3vMK5hoixd-GrRayxapGxXaEFO1UBYDS_RZdw",
-              Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlhcmRva2RjeWVpeGptaGhteGV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAxNzE5OTYsImV4cCI6MTk4NTc0Nzk5Nn0.uig3ma3vMK5hoixd-GrRayxapGxXaEFO1UBYDS_RZdw",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              order_id: res.id,
-              spot: area,
-              ticket: order.type,
-              info: order,
-              green: true,
-              tent2: cart.find((e) => e.value == "tent2")?.amount,
-              tent3: cart.find((e) => e.value == "tent3")?.amount,
-            }),
-          };
+      const sendData = (response) => {
+        info.forEach((order) => {
+          if (response.status != 500) {
+            const options = {
+              method: "POST",
+              headers: {
+                apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlhcmRva2RjeWVpeGptaGhteGV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAxNzE5OTYsImV4cCI6MTk4NTc0Nzk5Nn0.uig3ma3vMK5hoixd-GrRayxapGxXaEFO1UBYDS_RZdw",
+                Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlhcmRva2RjeWVpeGptaGhteGV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAxNzE5OTYsImV4cCI6MTk4NTc0Nzk5Nn0.uig3ma3vMK5hoixd-GrRayxapGxXaEFO1UBYDS_RZdw",
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                order_id: res.id,
+                spot: area,
+                ticket: order.type,
+                info: order,
+                green: cart.find((e) => e.value == "green")?.amount > 0,
+                tent2: cart.find((e) => e.value == "tent2")?.amount,
+                tent3: cart.find((e) => e.value == "tent3")?.amount,
+              }),
+            };
 
-          fetch("https://iardokdcyeixjmhhmxeu.supabase.co/rest/v1/booking", options)
-            .then((response) => response.json())
-            .then((response) => console.log(response))
-            .catch((err) => console.error(err));
-        }
-      });
-    };
+            fetch("https://iardokdcyeixjmhhmxeu.supabase.co/rest/v1/booking", options)
+              .then((response) => response.json())
+              .then((response) => console.log(response))
+              .catch((err) => console.error(err));
+          }
+        });
+      };
+    }
   };
 
   return (
     <>
       {!res && (
         <Collapse.Group className={styles.collapse}>
-          <Collapse title="Spot" expanded>
+          <Collapse title="Spot" subtitle="Select a camping spot" expanded>
             <SpotForm data={props.data} selection={(area) => setArea(area)} />
           </Collapse>
-          <Collapse disabled={!area} title="Tickets">
+          <Collapse disabled={!area} title="Tickets" subtitle="Choose your tickets">
             <TicketForm cart={cart} setCart={setCart} />
           </Collapse>
-          <Collapse disabled={cart.findIndex((e) => e.type == "ticket" && e.amount > 0) < 0} title="Ticket info">
-            <InfoForm cart={cart} validation={(res) => setVal(res)} />
+          <Collapse disabled={cart.findIndex((e) => e.type == "ticket" && e.amount > 0) < 0} title="Ticket info" subtitle="Info for each ticket">
+            <InfoForm cart={cart} validation={(val) => setVal(0 + val)} />
           </Collapse>
         </Collapse.Group>
       )}
       {res && !res?.error && (
         <Collapse.Group className={styles.collapse}>
-          <Collapse title="Billing" expanded>
-            <BillingForm />
+          <Collapse title="Billing" subtitle="Address and payment info" expanded>
+            <BillingForm validation={(val) => setVal(1 + val)} />
           </Collapse>
         </Collapse.Group>
       )}
       {res?.error && (
-        <>
-          <h1>Too many requests!</h1>
-          <b>Please Reload</b>
-        </>
+        <Collapse.Group className={styles.collapse}>
+          <Collapse title="Too many requests!" subtitle="Please Reload"></Collapse>
+        </Collapse.Group>
       )}
       <div className={styles.cart + " " + (display == 1 && styles.close)} onClick={() => setDisplay((p) => p * -1)}>
         <h2>Total: {getTotal()},-</h2>
@@ -156,8 +168,16 @@ function BookingForm(props) {
         </ul>
       </div>
       {res && <button onClick={reset}>Tilbage</button>}
-      {!res && <button onClick={reserveSpot}>{val ? "Continue to payment" : "Not valid"}</button>}
-      {res && <button onClick={completeOrder}>Complete order</button>}
+      {!res && (
+        <button onClick={reserveSpot} disabled={val != 1}>
+          Continue to payment
+        </button>
+      )}
+      {res && (
+        <button onClick={completeOrder} disabled={val != 2}>
+          Complete order
+        </button>
+      )}
     </>
   );
 }
