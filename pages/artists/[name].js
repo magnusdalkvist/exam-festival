@@ -1,36 +1,40 @@
-import { Button } from "@nextui-org/react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "./Name.module.css";
+import { useEffect, useState } from "react";
+import { Collapse } from "@nextui-org/react";
 
 export default function Henry({ data }) {
   const src = data.band.logo;
   const srcCredit = data.band.logoCredits;
   const router = useRouter();
 
+  const url = "http://localhost:8080/schedule/";
+  const [stageData, setData] = useState([]);
+  //FETCH
+  useEffect(() => {
+    fetch(url).then((result) => {
+      result.json().then((resp) => {
+        setData(resp);
+      });
+    });
+  }, []);
+
+  // console.log(data1.Vanaheim.fri.find((e) => e.act == data.band.name));
+
   return (
     <>
       <Head>
         <title>{data.band.name}</title>
       </Head>
-      <Button onClick={() => router.back()}>Go back</Button>
-      <h1 className={styles.headline}>{data.band.name}</h1>
       <div className={styles.main}>
-        <div className={styles.left}>
-          <div>
-            <h3 className={styles.underheadline}>Bio:</h3>
-            <p className={styles.text}>{data.band.bio}</p>
-          </div>
-          <div>
-            <h3 className={styles.underheading}>Members:</h3>
-            {data.band.members.map((members, i) => (
-              <p className={styles.members}>{members}</p>
-            ))}
-          </div>
-        </div>
-        <div className={styles.outerImage}>
-          <div className="image">
+        <a className={styles.back} onClick={() => router.back()}>
+          Go back ↩
+        </a>
+        <h1 className={styles.headline}>{data.band.name}</h1>
+        <div className={styles.grid}>
+          <div className={styles.image}>
             {src.startsWith("http") ? (
               <Image src={src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
             ) : (
@@ -38,6 +42,25 @@ export default function Henry({ data }) {
             )}
             {!srcCredit ? null : <p className={styles.credits}>{srcCredit}</p>}
           </div>
+          <Collapse.Group bordered className={styles.collapsegroup + " collapsegroup"}>
+            <Collapse title="BIO" expanded>
+              <div className={styles.bio}>
+                <p className={styles.text}>{data.band.bio}</p>
+              </div>
+            </Collapse>
+            <Collapse title="MEMBERS">
+              <div className={styles.members}>
+                {data.band.members.map((members, i) => (
+                  <p className={styles.member}>{members}</p>
+                ))}
+              </div>
+            </Collapse>
+            <Collapse title="GENRE">
+              <div className={styles.members}>
+                <div className={styles.member}>{data.band.genre}</div>
+              </div>
+            </Collapse>
+          </Collapse.Group>
         </div>
       </div>
     </>

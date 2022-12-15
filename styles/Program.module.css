@@ -67,12 +67,11 @@
 }
 
 .main {
-  padding-bottom: 2rem;
+  padding: 100px 1rem;
   background-image: url(/1555186463.svg);
   background-position: -100% bottom;
   background-repeat: repeat-x;
   background-size: 75%;
-  padding-top: 100px;
 }
 
 .wrapper {
