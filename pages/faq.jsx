@@ -7,7 +7,7 @@ function faq() {
       <div className={styles.main}>
         <div className={styles.wrapper}>
           <h1 className={styles.h1}>FAQ</h1>
-          <Collapse.Group className={styles.collapsegroup}>
+          <Collapse.Group bordered className={styles.collapsegroup}>
             <Collapse title="Q: What is GreenMark?">
               <div className={styles.info}>
                 <p>A: GreenMark is a sustainable music festival dedicated to celebrating the best in sustainable music and promoting environmental and social sustainability.</p>

@@ -8,7 +8,7 @@ function about() {
         <div className={styles.wrapper}>
           <h1 className={styles.h1}>ABOUT US</h1>
           <Collapse.Group bordered className={styles.collapsegroup}>
-            <Collapse className={styles.collapseHeadline} title="Celebrating Sustainable Music">
+            <Collapse title="Celebrating Sustainable Music">
               <div className={styles.info}>
                 <p>
                   Welcome to GreenMark, a music festival dedicated to celebrating the best in sustainable music. At GreenMark, we believe that sustainability is about more than just reducing our

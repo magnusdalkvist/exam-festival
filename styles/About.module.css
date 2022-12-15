@@ -11,18 +11,17 @@
 }
 
 .collapsegroup {
-  background-color: #7aac533e;
+  background-color: #7aac5358;
   border: 2px solid #79ac53;
 }
 
-.collapseHeadline {
-  color: #f2f2f2;
+.collapsegroup h3,
+.collapsegroup p {
+  color: white !important;
 }
-.nextui-c-hPzDAx {
-  color: #f2f2f2;
-}
-.nextui-collapse-title {
-  color: #f2f2f2;
+
+.collapsegroup path {
+  stroke: #f2f2f2 !important;
 }
 
 .main {
