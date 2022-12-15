@@ -18,6 +18,18 @@ a {
   font-size: 3rem;
 }
 
+.collapsegroup {
+  background-color: #7aac5358;
+  border: 2px solid #79ac53;
+  max-width: 60%;
+}
+
+.collapsegroup h3,
+.collapsegroup p,
+.collapsegroup path {
+  color: #f2f2f2 !important;
+}
+
 footer {
   background-color: #2a2a48;
 }
