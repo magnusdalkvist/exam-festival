@@ -42,7 +42,7 @@ export default function Henry({ data }) {
             )}
             {!srcCredit ? null : <p className={styles.credits}>{srcCredit}</p>}
           </div>
-          <Collapse.Group bordered className="collapsegroup">
+          <Collapse.Group bordered className={styles.collapsegroup + " collapsegroup"}>
             <Collapse title="BIO" expanded>
               <div className={styles.bio}>
                 <p className={styles.text}>{data.band.bio}</p>

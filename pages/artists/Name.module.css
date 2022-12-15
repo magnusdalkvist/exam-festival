@@ -159,6 +159,10 @@
   height: 100%;
 }
 
+.collapsegroup {
+  width: 100%;
+}
+
 .bio {
   text-align: justify;
 }
