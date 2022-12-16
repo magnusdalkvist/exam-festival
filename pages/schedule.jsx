@@ -52,7 +52,7 @@ function schedule({ bandData }) {
   return (
     <div className={styles.main}>
       <h1 className={styles.h1}>SCHEDULE</h1>
-      <h2 className={styles.h2underheader}>CHOSE A DAY</h2>
+      <h2 className={styles.h2underheader}>CHOOSE A DAY</h2>
       <div className={styles.mainwrapper}>
         <div className={styles.daypicker}>
           {days.map((day, i) => (
