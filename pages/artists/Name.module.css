@@ -176,6 +176,8 @@
 }
 
 .member {
+  display: grid;
+  align-items: center;
   background-color: #37395f;
   color: #f2f2f2;
   text-align: center;
