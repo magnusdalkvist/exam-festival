@@ -87,7 +87,7 @@
   grid-template-columns: auto repeat(3, 1fr);
   gap: 1rem;
   max-width: 1000px;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .new_grid h3 {
