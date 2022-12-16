@@ -51,32 +51,36 @@ function schedule({ bandData }) {
 
   return (
     <div className={styles.main}>
-      <div className={styles.daypicker}>
-        {days.map((day, i) => (
-          <button
-            key={i}
-            ref={ref[i]}
-            className={styles.daysbtn}
-            onClick={function () {
-              onDayChange(day);
-              scrollTo(ref[i]);
-              setActive(i);
-            }}
-          >
-            <h3 className={`${active == i && "active"}`}> {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}</h3>
-          </button>
-        ))}
-      </div>
-      <div className={styles.gridWrapper}>
-        <div className={styles.new_grid}>
-          <h3 className={styles.hidden}>TIME</h3>
-          <h3>MIDGARD</h3>
-          <h3>JOTUNHEIM</h3>
-          <h3>VANAHEIM</h3>
-          {insertTimes()}
-          <OneSchedule data={data.Midgard} bandData={bandData} />
-          <OneSchedule data={data.Jotunheim} bandData={bandData} />
-          <OneSchedule data={data.Vanaheim} bandData={bandData} />
+      <h1 className={styles.h1}>SCHEDULE</h1>
+      <h2 className={styles.h2underheader}>CHOSE A DAY</h2>
+      <div className={styles.mainwrapper}>
+        <div className={styles.daypicker}>
+          {days.map((day, i) => (
+            <button
+              key={i}
+              ref={ref[i]}
+              className={styles.daysbtn}
+              onClick={function () {
+                onDayChange(day);
+                scrollTo(ref[i]);
+                setActive(i);
+              }}
+            >
+              <h3 className={`${active == i && "active"}`}> {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}</h3>
+            </button>
+          ))}
+        </div>
+        <div className={styles.gridWrapper}>
+          <div className={styles.new_grid}>
+            <h3 className={styles.hidden}>TIME</h3>
+            <h3>MIDGARD</h3>
+            <h3>JOTUNHEIM</h3>
+            <h3>VANAHEIM</h3>
+            {insertTimes()}
+            <OneSchedule data={data.Midgard} bandData={bandData} />
+            <OneSchedule data={data.Jotunheim} bandData={bandData} />
+            <OneSchedule data={data.Vanaheim} bandData={bandData} />
+          </div>
         </div>
       </div>
     </div>

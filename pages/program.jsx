@@ -10,6 +10,7 @@ function program(props) {
     <div className={styles.main}>
       <div className={styles.wrapper}>
         <h1 className={styles.h1}>PROGRAM</h1>
+        <h2 className={styles.h2underheader}>IN RANDOM ORDER</h2>
         <div className={styles.topArtist}>
           {topArtist.map((e, i) => {
             const link = e.name.toLowerCase().split(" ").join("_");

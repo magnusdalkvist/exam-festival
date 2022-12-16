@@ -4,10 +4,18 @@
 
 .h1 {
   font-style: Bold;
-  font-size: 6em;
+  font-size: 8em;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 4px #79ac53;
-  margin: 2rem 0 3rem;
+  -webkit-text-stroke: 3px #79ac53;
+  margin: 2rem 0 0rem;
+  text-align: center;
+}
+
+.h2underheader {
+  font-style: Bold;
+  font-size: 2em;
+  -webkit-text-fill-color: #79ac53;
+  margin: 0rem 0 3rem;
   text-align: center;
 }
 
