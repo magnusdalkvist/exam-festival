@@ -29,22 +29,27 @@ function TicketForm(props) {
   };
 
   return (
-    <form ref={theForm}>
-      <TicketButton value="regular" type="ticket" name="Regular Ticket" price="799" id={1} addItem={addItem} />
-      <TicketButton value="vip" type="ticket" name="VIP Ticket" price="1299" id={2} addItem={addItem} />
-      <TicketButton value="tent2" type="service" name="2 person tent (incl. the tent)" price="299" id={3} addItem={addItem} />
-      <TicketButton value="tent3" type="service" name="3 person tent (incl. the tent)" price="399" id={4} addItem={addItem} />
+    <div className={styles.info_item}>
+      <form ref={theForm}>
+        <TicketButton value="regular" type="ticket" name="Regular Ticket" price="799" id={1} addItem={addItem} />
+        <TicketButton value="vip" type="ticket" name="VIP Ticket" price="1299" id={2} addItem={addItem} />
+        <TicketButton value="tent2" type="service" name="2 person tent (incl. the tent)" price="299" id={3} addItem={addItem} />
+        <TicketButton value="tent3" type="service" name="3 person tent (incl. the tent)" price="399" id={4} addItem={addItem} />
 
-      <label htmlFor="green">
-        <div className={styles.ticket}>
-          <div>
-            <p>Green Camping</p>
-            <i>249,-</i>
+        <label htmlFor="green">
+          <div className={styles.ticket}>
+            <div>
+              <p>Green Camping</p>
+              <i>249,-</i>
+            </div>
+            <label className={styles.container}>
+              <input type="checkbox" className={styles.checkbox} name="Green Camping" id={5} onChange={greenCamping} />
+              <span className={styles.checkmark}></span>
+            </label>
           </div>
-          <input type="checkbox" name="Green Camping" id={5} onChange={greenCamping} />
-        </div>
-      </label>
-    </form>
+        </label>
+      </form>
+    </div>
   );
 }
 

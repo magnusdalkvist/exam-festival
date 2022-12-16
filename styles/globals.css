@@ -25,6 +25,10 @@ a {
   border: 2px solid #79ac53; */
 }
 
+.collapsegroup .nextui-collapse-subtitle {
+  color: #72a24e;
+}
+
 .collapsegroup .nextui-c-hPzDAx-jBQhgJ-divider-true {
   border-bottom: solid 3px #37395f;
 }
@@ -36,6 +40,22 @@ a {
 
 .collapsegroup path {
   stroke: #f2f2f2 !important;
+}
+
+.collapsegroup .nextui-radio-point {
+  box-shadow: none;
+}
+
+.collapsegroup .nextui-radio-point::after {
+  border: #72a24e solid 2px;
+}
+
+.collapsegroup .nextui-radio--is-hovered .nextui-radio-point::after {
+  background-color: #37395f;
+}
+
+.collapsegroup .nextui-radio--checked .nextui-radio-point::after {
+  border: #72a24e solid 5px;
 }
 
 footer {

@@ -32,7 +32,7 @@ function BookingForm(props) {
   };
 
   const getInfo = () => {
-    document.querySelectorAll("#test_form[data-type='regular']").forEach((e) => {
+    document.querySelectorAll("#info_form[data-type='regular']").forEach((e) => {
       const person = {};
       person.firstname = e.firstname.value;
       person.lastname = e.lastname.value;
@@ -41,7 +41,7 @@ function BookingForm(props) {
       person.type = "regular";
       setInfo((info) => info.concat(person));
     });
-    document.querySelectorAll("#test_form[data-type='vip']").forEach((e) => {
+    document.querySelectorAll("#info_form[data-type='vip']").forEach((e) => {
       const person = {};
       person.firstname = e.firstname.value;
       person.lastname = e.lastname.value;
@@ -123,13 +123,14 @@ function BookingForm(props) {
           }
         });
       };
+      setVal(3);
     }
   };
 
   return (
     <>
       {!res && (
-        <Collapse.Group className={styles.collapse}>
+        <Collapse.Group className={styles.collapse + " collapsegroup"}>
           <Collapse title="Spot" subtitle="Select a camping spot" expanded>
             <SpotForm data={props.data} selection={(area) => setArea(area)} />
           </Collapse>
@@ -141,15 +142,20 @@ function BookingForm(props) {
           </Collapse>
         </Collapse.Group>
       )}
-      {res && !res?.error && (
-        <Collapse.Group className={styles.collapse}>
+      {res && val < 3 && !res?.error && (
+        <Collapse.Group className={styles.collapse + " collapsegroup"}>
           <Collapse title="Billing" subtitle="Address and payment info" expanded>
             <BillingForm validation={(val) => setVal(1 + val)} />
           </Collapse>
         </Collapse.Group>
       )}
+      {val == 3 && (
+        <Collapse.Group className={styles.collapse + " collapsegroup"}>
+          <Collapse title="Your order is complete!" subtitle="Thank you for your purchase" expanded></Collapse>
+        </Collapse.Group>
+      )}
       {res?.error && (
-        <Collapse.Group className={styles.collapse}>
+        <Collapse.Group className={styles.collapse + " collapsegroup"}>
           <Collapse title="Too many requests!" subtitle="Please Reload"></Collapse>
         </Collapse.Group>
       )}
@@ -167,17 +173,23 @@ function BookingForm(props) {
           })}
         </ul>
       </div>
-      {res && <button onClick={reset}>Tilbage</button>}
-      {!res && (
-        <button onClick={reserveSpot} disabled={val != 1}>
-          Continue to payment
-        </button>
-      )}
-      {res && (
-        <button onClick={completeOrder} disabled={val != 2}>
-          Complete order
-        </button>
-      )}
+      <div className={styles.buttons}>
+        {res && (
+          <button className={styles.back} onClick={reset}>
+            back
+          </button>
+        )}
+        {!res && (
+          <button className={styles.continue} onClick={reserveSpot} disabled={val != 1}>
+            Continue to payment
+          </button>
+        )}
+        {res && val < 3 && (
+          <button className={styles.continue} onClick={completeOrder} disabled={val != 2}>
+            Complete order
+          </button>
+        )}
+      </div>
     </>
   );
 }

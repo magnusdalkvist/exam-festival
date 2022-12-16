@@ -40,7 +40,7 @@ function InfoForm(props) {
                 ref={(e) => {
                   refs.current[(i + 1) * (index + 1)] = e;
                 }}
-                id="test_form"
+                id="info_form"
                 data-type={item.value}
                 className={styles.info}
                 key={i}
