@@ -1,4 +1,3 @@
-import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import AnchorLink from "../components/AnchorLink";
 import Image from "next/image";
@@ -6,12 +5,6 @@ import Image from "next/image";
 export default function Home({ setState }) {
   return (
     <>
-      <Head>
-        <title>GREENMARK FESTIVAL</title>
-        <meta name="description" content="GREENMARK FESTIVAL" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <div className={styles.splashGroup}>
         <div className={styles.splash_titles}>
           <h2 className={styles.splash_h2}>Sustainable sounds for a brighter future.</h2>
