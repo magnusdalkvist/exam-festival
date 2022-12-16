@@ -10,9 +10,16 @@ function TicketButton(props) {
     if (value > 0 && e.target.innerHTML == "-") {
       modifier = -1;
     }
-    if (value < 99 && e.target.innerHTML == "+") {
+    if (value < 20 && e.target.innerHTML == "+") {
       modifier = 1;
     }
+    if (value == 0 && e.target.innerHTML == "-") {
+      modifier = 0;
+    }
+    if (value == 20 && e.target.innerHTML == "+") {
+      modifier = 0;
+    }
+
     cartItem.value = props.value;
     cartItem.name = props.name;
     cartItem.price = props.price;

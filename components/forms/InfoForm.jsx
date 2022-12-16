@@ -9,8 +9,10 @@ function InfoForm(props) {
     let valid = 0;
     let amount = 0;
     refs.current.forEach((e) => {
-      amount++;
-      valid += e.checkValidity();
+      if (e) {
+        amount++;
+        valid += e.checkValidity();
+      }
     });
     if (valid == amount) {
       props.validation(true);

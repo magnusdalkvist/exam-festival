@@ -1,6 +1,6 @@
 import TicketButton from "../TicketButton";
-import { Checkbox } from "@nextui-org/react";
 import { useRef, useState } from "react";
+import styles from "../../styles/Booking.module.css";
 
 function TicketForm(props) {
   const theForm = useRef(null);
@@ -16,6 +16,18 @@ function TicketForm(props) {
     }
   };
 
+  const greenCamping = (e) => {
+    const cartItem = {};
+    cartItem.value = "green";
+    cartItem.name = e.target.name;
+    cartItem.id = e.target.id;
+    cartItem.amount = 0 + e.target.checked;
+    cartItem.price = 249;
+    cartItem.type = "extra";
+
+    addItem(cartItem);
+  };
+
   return (
     <form ref={theForm}>
       <TicketButton value="regular" type="ticket" name="Regular Ticket" price="799" id={1} addItem={addItem} />
@@ -23,11 +35,15 @@ function TicketForm(props) {
       <TicketButton value="tent2" type="service" name="2 person tent (incl. the tent)" price="299" id={3} addItem={addItem} />
       <TicketButton value="tent3" type="service" name="3 person tent (incl. the tent)" price="399" id={4} addItem={addItem} />
 
-      <Checkbox.Group size="sm" defaultValue={["green"]} aria-label="green camping">
-        <Checkbox value="green" name="green">
-          Green camping
-        </Checkbox>
-      </Checkbox.Group>
+      <label htmlFor="green">
+        <div className={styles.ticket}>
+          <div>
+            <p>Green Camping</p>
+            <i>249,-</i>
+          </div>
+          <input type="checkbox" name="Green Camping" id={5} onChange={greenCamping} />
+        </div>
+      </label>
     </form>
   );
 }
