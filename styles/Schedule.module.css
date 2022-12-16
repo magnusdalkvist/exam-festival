@@ -87,6 +87,7 @@
   grid-template-columns: auto repeat(3, 1fr);
   gap: 1rem;
   max-width: 1000px;
+  overflow-x: scroll;
 }
 
 .new_grid h3 {
@@ -137,18 +138,29 @@
 
 /* Make the page responsive */
 @media (max-width: 600px) {
-  .new_act,
-  .new_times h2 {
-    background-color: rgba(122, 172, 83, 0.1);
-    color: #79ac53;
-    -webkit-text-fill-color: #79ac53;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 0;
+  .main {
+    background-position: center bottom;
+    background-size: cover;
   }
-
+  .h1 {
+    font-size: 4rem;
+    -webkit-text-stroke: #79ac53 2px;
+  }
+  .daysbtn h3 {
+    font-size: 2rem;
+  }
+  .daysbtn:first-child,
+  .daysbtn:last-child {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .new_times {
+    font-size: 1.5rem;
+    -webkit-text-stroke: #79ac53 1px;
+  }
+  .new_act h2 {
+    font-size: 1rem;
+  }
   .linkHere {
     color: #79ac53;
     -webkit-text-fill-color: #79ac53;

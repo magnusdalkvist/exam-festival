@@ -34,7 +34,6 @@ function contact() {
             <input onClick={(e) => e.preventDefault()} type="submit" value="SEND" />
           </form>
         </div>
-        <div className={styles.splash} style={{ backgroundImage: "url(/treelines.svg)" }}></div>
       </div>
     </div>
   );
