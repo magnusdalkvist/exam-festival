@@ -12,9 +12,6 @@
   resize: vertical;
 }
 
-.select {
-}
-
 .form input[type="text"]:focus-visible,
 .form select:focus-visible,
 .form textarea:focus-visible {
@@ -40,12 +37,16 @@
 }
 
 .contactForm {
-  border-radius: 5px;
+  border-radius: 1rem;
   background-color: #2a2a48;
-  border: 2px solid #2a2a48;
+  border: 3px solid #37395f;
   padding: 20px;
   width: 50%;
   margin: 0 auto;
+}
+
+.contactForm textarea {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .wrapper {
@@ -62,12 +63,14 @@
   background-position: -100% bottom;
   background-repeat: repeat-x;
   background-size: 75%;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 /* STYLING */
 
 .h1 {
-  font-style: Bold;
+  font-weight: bold;
   font-size: 100px;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 4px #79ac53;
@@ -78,11 +81,7 @@
 @media (max-width: 600px) {
   .contactForm {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr), 3fr, 1fr;
     width: 85%;
-    gap: 2rem;
-    margin-bottom: -5rem;
   }
 
   .main {
@@ -93,7 +92,7 @@
   }
 
   .h1 {
-    font-style: Bold;
+    font-weight: bold;
     font-size: 3em;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 2px #79ac53;

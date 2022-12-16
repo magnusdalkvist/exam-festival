@@ -55,7 +55,7 @@ a {
 }
 
 .collapsegroup .nextui-radio--is-hovered .nextui-radio-point::after {
-  background-color: #37395f;
+  border: #72a24e solid 5px;
 }
 
 .collapsegroup .nextui-radio--checked .nextui-radio-point::after {
