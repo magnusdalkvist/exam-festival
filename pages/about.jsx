@@ -34,7 +34,7 @@ function about() {
                 </p>
               </div>
             </Collapse>
-            <Collapse title="Become a Volunteer!">
+            <Collapse expanded title="Become a Volunteer!">
               <div className={styles.info}>
                 <p>
                   Are you passionate about sustainability and music? Do you want to help make GreenMark a success? We're looking for volunteers to join our team and help us create an unforgettable

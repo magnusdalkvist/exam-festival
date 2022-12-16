@@ -59,6 +59,23 @@
   font-size: 2rem;
 }
 
+.h1 {
+  font-style: Bold;
+  font-size: 8em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 3px #79ac53;
+  margin: 2rem 0 0rem;
+  text-align: center;
+}
+
+.h2underheader {
+  font-style: Bold;
+  font-size: 2em;
+  -webkit-text-fill-color: #79ac53;
+  margin: 2rem 0 0;
+  text-align: center;
+}
+
 /* NEW GRID */
 .gridWrapper {
   display: flex;

@@ -19,7 +19,7 @@ function contact() {
             <label className={styles.label} for="country">
               Reason for contact
             </label>
-            <select id="country" name="country">
+            <select id="country" className={styles.select} name="country">
               <option value="general"> General enquiries</option>
               <option value="tickets"> Ticket enquiries</option>
               <option value="volunteer">Volunteer enquiries</option>
