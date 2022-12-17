@@ -16,8 +16,10 @@ function OneSchedule(props) {
           );
         } else {
           return (
-            <div className={styles.new_act}>
-              <h2 className={styles.breakTime}>Break</h2>{" "}
+            <div className={styles.new_break}>
+              <div className={styles.new_break_line}></div>
+              <h2 className={styles.breakTime}>Break</h2>
+              <div className={styles.new_break_line}></div>
             </div>
           );
         }
