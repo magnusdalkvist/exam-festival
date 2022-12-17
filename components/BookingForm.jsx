@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Collapse } from "@nextui-org/react";
 import styles from "../styles/Booking.module.css";
 import InfoForm from "./forms/InfoForm";
@@ -131,7 +131,7 @@ function BookingForm(props) {
     <>
       {!res && (
         <Collapse.Group className={styles.collapse + " collapsegroup"}>
-          <Collapse title="Spot" subtitle="Select a camping spot" expanded>
+          <Collapse title="Spot" subtitle="Select a camping spot" expanded={props.data?.length > 0}>
             <SpotForm data={props.data} selection={(area) => setArea(area)} />
           </Collapse>
           <Collapse disabled={!area} title="Tickets" subtitle="Choose your tickets">

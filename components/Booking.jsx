@@ -1,9 +1,16 @@
 import BookingForm from "./BookingForm";
 import styles from "../styles/Booking.module.css";
-import { Checkbox } from "@nextui-org/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Booking({ spotData, setState, state }) {
+function Booking({ setState, state }) {
+  const [spotData, setData] = useState();
+  useEffect(() => {
+    fetch("http://localhost:8080/available-spots/").then((result) => {
+      result.json().then((resp) => {
+        setData(resp);
+      });
+    });
+  });
   return (
     <>
       <div

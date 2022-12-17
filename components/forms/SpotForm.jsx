@@ -9,7 +9,7 @@ export default function SpotForm(props) {
         props.selection(e);
       }}
     >
-      {props.data.map((spot, i) => {
+      {props.data?.map((spot, i) => {
         return (
           <Radio size="sm" key={i} value={spot.area} isDisabled={spot.available == 0}>
             {spot.area} - Available: {spot.available}
