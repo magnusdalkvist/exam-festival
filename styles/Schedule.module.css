@@ -107,7 +107,7 @@
 .new_oneScheduleActs,
 .new_times {
   display: grid;
-  grid-auto-rows: 1fr 0.5fr;
+  grid-auto-rows: 1fr 0.75fr;
   gap: 1rem;
 }
 
@@ -181,5 +181,9 @@
     color: #79ac53;
     -webkit-text-fill-color: #79ac53;
     font-size: 1rem;
+  }
+  .new_oneScheduleActs,
+  .new_times {
+    grid-auto-rows: 1fr 0.5fr;
   }
 }
