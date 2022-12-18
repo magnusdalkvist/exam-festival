@@ -18,7 +18,7 @@ function Newsletter() {
           </label>
           <label>
             <input type="radio" name="radio" />
-            I’m mostly interested in your environmental stuff
+            I’m interested in environmental stuff
           </label>
           <label>
             <input type="radio" name="radio" />
