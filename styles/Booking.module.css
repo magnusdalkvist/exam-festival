@@ -31,7 +31,7 @@
 .menu {
   padding: 0 1rem 1rem;
   z-index: 1000;
-  background-color: var(--white);
+  background-color: var(--am-blue);
   border-left: 3px solid var(--midnight-blue);
   position: fixed;
   inset: 0;
