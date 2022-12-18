@@ -3,6 +3,7 @@ import App from "next/app";
 import Layout from "../components/Layout.js";
 import { useState } from "react";
 import Head from "next/head";
+import { SSRProvider } from "@react-aria/ssr";
 
 function MyApp({ Component, pageProps, bandData }) {
   const [state, setState] = useState("close");
