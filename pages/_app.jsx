@@ -25,7 +25,7 @@ export default MyApp;
 MyApp.getInitialProps = async (appContext) => {
   // Provide the appContext, in order to do 404's
   const appProps = await App.getInitialProps(appContext);
-  const band = await fetch("http://localhost:8080/bands/");
+  const band = await fetch("https://greenmark.fly.dev/bands/");
   const bandData = await band.json();
   return { ...appProps, bandData };
 };

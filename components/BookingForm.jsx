@@ -70,7 +70,7 @@ function BookingForm(props) {
           body: JSON.stringify({ area: area, amount: 1 }),
         };
 
-        fetch("http://localhost:8080/reserve-spot", options)
+        fetch("https://greenmark.fly.dev/reserve-spot", options)
           .then((response) => response.json())
           .then((response) => setRes(response))
           .catch((err) => console.error(err));
@@ -90,7 +90,7 @@ function BookingForm(props) {
         body: JSON.stringify({ id: res.id }),
       };
 
-      fetch("http://localhost:8080/fullfill-reservation", options)
+      fetch("https://greenmark.fly.dev/fullfill-reservation", options)
         .then((response) => response.json())
         .then((response) => sendData(response))
         .catch((err) => console.error(err));

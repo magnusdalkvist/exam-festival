@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 function Booking({ setState, state }) {
   const [spotData, setData] = useState();
   useEffect(() => {
-    fetch("http://localhost:8080/available-spots/").then((result) => {
+    fetch("https://greenmark.fly.dev/available-spots/").then((result) => {
       result.json().then((resp) => {
         setData(resp);
       });

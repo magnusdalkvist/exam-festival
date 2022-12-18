@@ -6,7 +6,7 @@ import React from "react";
 function schedule({ bandData }) {
   const [selectDay, setSelectDay] = useState("mon");
   const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-  const url = "http://localhost:8080/schedule/";
+  const url = "https://greenmark.fly.dev/schedule/";
   const [data, setData] = useState([]);
 
   //SCROLL

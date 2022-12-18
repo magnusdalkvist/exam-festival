@@ -24,7 +24,7 @@ export default function Henry({ data }) {
             {src.startsWith("http") ? (
               <Image src={src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
             ) : (
-              <Image src={"http://localhost:8080/logos/" + src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
+              <Image src={"https://greenmark.fly.dev/logos/" + src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
             )}
             {!srcCredit ? null : <p className={styles.credits}>{srcCredit}</p>}
           </div>
@@ -55,7 +55,7 @@ export default function Henry({ data }) {
 
 export async function getStaticProps(context) {
   const name = context.params.name;
-  const res = await fetch("http://localhost:8080/bands/" + name);
+  const res = await fetch("https://greenmark.fly.dev/bands/" + name);
 
   // If no succes, return a 404 redirect
   if (res.status != 200) {
@@ -74,7 +74,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("http://localhost:8080/bands/");
+  const res = await fetch("https://greenmark.fly.dev/bands/");
   const data = await res.json();
 
   const paths = data.map((obj) => {
