@@ -120,6 +120,8 @@ function BookingForm(props) {
               .then((response) => response.json())
               .then((response) => console.log(response))
               .catch((err) => console.error(err));
+          } else {
+            reset();
           }
         });
       };
