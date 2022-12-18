@@ -97,7 +97,7 @@ function BookingForm(props) {
 
       const sendData = (response) => {
         info.forEach((order) => {
-          if (response.status != 500) {
+          if (response.message == "Reservation completed") {
             const options = {
               method: "POST",
               headers: {
