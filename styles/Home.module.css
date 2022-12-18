@@ -1,7 +1,7 @@
 .splashGroup {
   width: 100%;
   min-height: 100vh;
-  padding: 100px 2rem;
+  padding: 100px 1rem;
   background-image: url(/treelines.svg);
   background-position: bottom;
   background-repeat: no-repeat;
