@@ -84,7 +84,6 @@
   text-align: center;
   border: none;
   background: none;
-  color: black;
   font-size: 1rem;
   color: white;
 }
@@ -253,6 +252,10 @@
   align-self: flex-end;
   width: 100%;
   box-sizing: border-box;
+}
+
+.cart h2 {
+  color: #f2f2f2;
 }
 
 .cart ul {

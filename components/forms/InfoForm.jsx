@@ -56,7 +56,7 @@ function InfoForm(props) {
           }
           return (
             <div className={styles.info_item} key={index}>
-              <h1 className={styles.info_type}>{item.value}</h1>
+              <h2 className={styles.info_type}>{item.value}</h2>
               {fields}
             </div>
           );
