@@ -35,10 +35,10 @@ function Footer() {
       <div className={styles.footerGrid}>
         <Newsletter />
         <div className={styles.quicklinks}>
-          <h1>QUICK LINKS</h1>
+          <h2>QUICK LINKS</h2>
           <ul className={styles.footer_links}>
             <li>
-              <Anchor href="/program">Program</Anchor>
+              <Anchor href="/tickets">Tickets</Anchor>
             </li>
             <li>
               <Anchor href="/schedule">Schedule</Anchor>

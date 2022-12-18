@@ -160,7 +160,7 @@ function BookingForm(props) {
         </Collapse.Group>
       )}
       <div className={styles.cart + " " + (display == 1 && styles.close)} onClick={() => setDisplay((p) => p * -1)}>
-        <h2>Total: {getTotal()},-</h2>
+        <h3>Total: {getTotal()},-</h3>
         <ul>
           {cart.map((item, i) => {
             if (item.amount > 0) {

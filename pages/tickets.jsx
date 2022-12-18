@@ -5,12 +5,10 @@ import { Collapse } from "@nextui-org/react";
 function tickets({ setState }) {
   return (
     <div className={styles.main}>
-      <div className={styles.topBar}>
-        <h1 className={styles.h1}>TICKETS</h1>
-        <a className={styles.calltoaction} onClick={() => setState("open")}>
-          BUY TICKETS HERE
-        </a>
-      </div>
+      <h1 className={styles.h1}>TICKETS</h1>
+      <a className={styles.calltoaction} onClick={() => setState("open")}>
+        BUY TICKETS HERE
+      </a>
       <div className={styles.wrapper}>
         <div className={styles.ticketOptions}>
           <h2 className={styles.h2}>Ticket options:</h2>
