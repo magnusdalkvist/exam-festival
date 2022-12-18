@@ -81,8 +81,6 @@ export async function getStaticPaths() {
     return { params: { name: obj.name.toLowerCase().split(" ").join("_") } };
   });
 
-  console.log(paths);
-
   return {
     paths: paths,
     fallback: false,
