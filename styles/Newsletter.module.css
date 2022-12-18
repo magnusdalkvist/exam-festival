@@ -56,7 +56,7 @@
   background: none;
   margin: 0;
   height: 1.5rem;
-  aspect-ratio: 1/1;
+  width: 1.5rem;
   border: 0.15em solid #79ac53;
   border-radius: 50%;
   display: grid;
