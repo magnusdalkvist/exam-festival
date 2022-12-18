@@ -33,7 +33,7 @@
 
 .daysbtn h3 {
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px #79ac53;
+  -webkit-text-stroke: 2px var(--nature-green);
   font-weight: 700;
   font-size: 3.5rem;
   text-transform: uppercase;
@@ -48,22 +48,22 @@
 }
 
 .daysbtn h3:hover {
-  -webkit-text-fill-color: #79ac53;
+  -webkit-text-fill-color: var(--nature-green);
 }
 
 .daysbtn .active {
-  -webkit-text-fill-color: #79ac53;
+  -webkit-text-fill-color: var(--nature-green);
 }
 
 .linkHere {
-  color: #79ac53;
-  -webkit-text-fill-color: #79ac53;
+  color: var(--nature-green);
+  -webkit-text-fill-color: var(--nature-green);
   font-size: 2rem;
 }
 
 .breakTime {
-  color: #79ac53;
-  -webkit-text-fill-color: #79ac53;
+  color: var(--nature-green);
+  -webkit-text-fill-color: var(--nature-green);
   font-size: 2rem;
 }
 
@@ -88,7 +88,7 @@
 
 .new_grid h3 {
   font-size: 2rem;
-  color: #79ac53;
+  color: var(--nature-green);
   text-align: center;
 }
 
@@ -110,7 +110,7 @@
 
 .new_act {
   background-color: rgba(122, 172, 83, 0.1);
-  color: #79ac53;
+  color: var(--nature-green);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +133,7 @@
 }
 
 .new_break_line {
-  background-color: #79ac53;
+  background-color: var(--nature-green);
   height: 3px;
   width: 100%;
 }
@@ -141,7 +141,7 @@
 .new_times {
   background: none;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: #79ac53 2px;
+  -webkit-text-stroke: var(--nature-green) 2px;
   font-size: 2rem;
   display: grid;
   align-items: center;
@@ -162,14 +162,14 @@
   }
   .new_times {
     font-size: 1.5rem;
-    -webkit-text-stroke: #79ac53 1px;
+    -webkit-text-stroke: var(--nature-green) 1px;
   }
   .new_act h2 {
     font-size: 1rem;
   }
   .linkHere {
-    color: #79ac53;
-    -webkit-text-fill-color: #79ac53;
+    color: var(--nature-green);
+    -webkit-text-fill-color: var(--nature-green);
     font-size: 1rem;
   }
   .new_oneScheduleActs,

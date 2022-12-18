@@ -1,7 +1,14 @@
+:root {
+  --nature-green: #79ac53;
+  --midnight-blue: #37395f;
+  --am-blue: #2a2a48;
+  --white: #f2f2f2;
+}
+
 body {
   padding: 0;
   margin: 0;
-  background-color: #37395f;
+  background-color: var(--midnight-blue);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -16,13 +23,13 @@ h4 {
   margin: 0;
   text-transform: uppercase;
   font-weight: bold;
-  color: #72a24e;
+  color: var(--nature-green);
 }
 
 h1 {
   font-size: 6rem;
   text-align: center;
-  -webkit-text-stroke: 3px #72a24e;
+  -webkit-text-stroke: 3px var(--nature-green);
   -webkit-text-fill-color: transparent;
 }
 
@@ -44,7 +51,7 @@ h4 {
 }
 
 a {
-  color: #79ac53;
+  color: var(--nature-green);
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 700;
@@ -52,27 +59,27 @@ a {
 }
 
 .collapsegroup {
-  background-color: #2a2a48;
-  border: 3px solid #37395f;
+  background-color: var(--am-blue);
+  border: 3px solid var(--midnight-blue);
   /* background-color: #7aac5358;
-  border: 2px solid #79ac53; */
+  border: 2px solid var(--nature-green); */
 }
 
 .collapsegroup .nextui-collapse-subtitle {
-  color: #72a24e;
+  color: var(--nature-green);
 }
 
 .collapsegroup .nextui-c-hPzDAx-jBQhgJ-divider-true {
-  border-bottom: solid 3px #37395f;
+  border-bottom: solid 3px var(--midnight-blue);
 }
 
 .collapsegroup h3,
 .collapsegroup p {
-  color: #f2f2f2 !important;
+  color: var(--white) !important;
 }
 
 .collapsegroup path {
-  stroke: #f2f2f2 !important;
+  stroke: var(--white) !important;
 }
 
 .collapsegroup .nextui-radio-point {
@@ -80,19 +87,19 @@ a {
 }
 
 .collapsegroup .nextui-radio-point::after {
-  border: #72a24e solid 2px;
+  border: var(--nature-green) solid 2px;
 }
 
 .collapsegroup .nextui-radio--is-hovered .nextui-radio-point::after {
-  border: #72a24e solid 5px;
+  border: var(--nature-green) solid 5px;
 }
 
 .collapsegroup .nextui-radio--checked .nextui-radio-point::after {
-  border: #72a24e solid 5px;
+  border: var(--nature-green) solid 5px;
 }
 
 footer {
-  background-color: #2a2a48;
+  background-color: var(--am-blue);
 }
 
 img {
@@ -123,8 +130,10 @@ img {
   }
 
   h3 {
+    font-size: 1rem;
   }
 
   h4 {
+    font-size: 1rem;
   }
 }

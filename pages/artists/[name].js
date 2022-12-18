@@ -22,9 +22,9 @@ export default function Henry({ data }) {
         <div className={styles.grid}>
           <div className={styles.image}>
             {src.startsWith("http") ? (
-              <Image src={src} alt={srcCredit} className={styles.theImage} width={500} height={500} placeholder="blur" />
+              <Image src={src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
             ) : (
-              <Image src={"https://greenmark.fly.dev/logos/" + src} alt={srcCredit} className={styles.theImage} width={500} height={500} placeholder="blur" />
+              <Image src={"https://greenmark.fly.dev/logos/" + src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
             )}
             {!srcCredit ? null : <p className={styles.credits}>{srcCredit}</p>}
           </div>
