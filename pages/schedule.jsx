@@ -34,7 +34,6 @@ function schedule({ bandData }) {
 
   //SCROLL
   function scrollTo(ref) {
-    console.log(active);
     if (!ref.current) return;
     ref.current.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   }
@@ -66,7 +65,7 @@ function schedule({ bandData }) {
                 setActive(i);
               }}
             >
-              <h3 className={`${active == i && "active"}`}> {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}</h3>
+              <h3 className={`${active == i && styles.active}`}> {day.substring(0, 1).toUpperCase() + day.substring(1, day.length)}</h3>
             </button>
           ))}
         </div>

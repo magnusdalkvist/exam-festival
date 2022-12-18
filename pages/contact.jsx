@@ -4,7 +4,7 @@ function contact() {
   return (
     <div className={styles.main}>
       <div className={styles.wrapper}>
-        <h1 className={styles.h1}>CONTACT US</h1>
+        <h1 className={styles.h1}>CONTACT</h1>
         <div className={styles.contactForm}>
           <form className={styles.form}>
             <label className={styles.label} for="fname">

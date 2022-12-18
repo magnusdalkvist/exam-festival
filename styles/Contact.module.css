@@ -41,8 +41,10 @@
   background-color: #2a2a48;
   border: 3px solid #37395f;
   padding: 20px;
-  width: 50%;
+  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .contactForm textarea {
@@ -55,10 +57,11 @@
   align-items: center;
   max-width: 1000px;
   margin: 0 auto;
+  gap: 2rem;
 }
 
 .main {
-  padding: 100px 1rem;
+  padding: 100px 2rem;
   background-image: url(/1555186463.svg);
   background-position: -100% bottom;
   background-repeat: repeat-x;
@@ -67,35 +70,12 @@
   min-height: 100vh;
 }
 
-/* STYLING */
-
-.h1 {
-  font-weight: bold;
-  font-size: 100px;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 4px #79ac53;
-  margin: 2rem 0 3rem;
-}
-
 /* Make the page responsive */
 @media (max-width: 600px) {
-  .contactForm {
-    display: grid;
-    width: 85%;
-  }
-
   .main {
     padding-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .h1 {
-    font-weight: bold;
-    font-size: 3em;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 2px #79ac53;
-    margin: 2rem 0 3rem;
   }
 }

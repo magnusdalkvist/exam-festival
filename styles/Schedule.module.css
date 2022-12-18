@@ -1,15 +1,17 @@
 .main {
-  padding: 100px 1rem;
+  padding: 100px 2rem;
   background-image: url(/1555186463.svg);
-  background-position: -100% bottom;
+  background-position: bottom;
   background-repeat: repeat-x;
-  background-size: 75%;
+  background-size: cover;
 }
 
 .daypicker {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   overflow-y: auto;
+  gap: 3rem;
+  padding-top: 2rem;
 }
 .daypicker::-webkit-scrollbar {
   display: none;
@@ -26,24 +28,30 @@
   border: none;
   margin: 0;
   cursor: pointer;
+  padding: 0;
+}
+
+.daysbtn h3 {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 2px #79ac53;
   font-weight: 700;
   font-size: 3.5rem;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1rem 1.5rem 0rem;
 }
 
 .daysbtn:first-child {
-  padding-left: 50vh;
+  padding-left: calc(50vw - 165px);
 }
 .daysbtn:last-child {
-  padding-right: 50vh;
+  padding-right: calc(50vw - 155px);
 }
 
-.daysbtn:hover,
-.daysbtn:active {
+.daysbtn h3:hover {
+  -webkit-text-fill-color: #79ac53;
+}
+
+.daysbtn .active {
   -webkit-text-fill-color: #79ac53;
 }
 
@@ -59,20 +67,7 @@
   font-size: 2rem;
 }
 
-.h1 {
-  font-style: Bold;
-  font-size: 8em;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 3px #79ac53;
-  margin: 2rem 0 0rem;
-  text-align: center;
-}
-
 .h2underheader {
-  font-style: Bold;
-  font-size: 2em;
-  -webkit-text-fill-color: #79ac53;
-  margin: 2rem 0 0;
   text-align: center;
 }
 
@@ -83,6 +78,7 @@
 }
 
 .new_grid {
+  padding-top: 2rem;
   display: grid;
   grid-template-columns: auto repeat(3, 1fr);
   gap: 1rem;
@@ -98,6 +94,7 @@
 
 .new_grid h2 {
   margin: 0;
+  padding: 0 2px;
 }
 
 .hidden {
@@ -154,21 +151,14 @@
 
 /* Make the page responsive */
 @media (max-width: 600px) {
-  .main {
-    background-position: center bottom;
-    background-size: cover;
-  }
-  .h1 {
-    font-size: 4rem;
-    -webkit-text-stroke: #79ac53 2px;
-  }
   .daysbtn h3 {
     font-size: 2rem;
   }
-  .daysbtn:first-child,
+  .daysbtn:first-child {
+    padding-left: calc(50vw - 100px);
+  }
   .daysbtn:last-child {
-    padding-left: 0;
-    padding-right: 0;
+    padding-right: calc(50vw - 100px);
   }
   .new_times {
     font-size: 1.5rem;
@@ -185,5 +175,11 @@
   .new_oneScheduleActs,
   .new_times {
     grid-auto-rows: 1fr 0.5fr;
+  }
+  .daypicker {
+    gap: 1.5rem;
+  }
+  .new_break_line {
+    height: 2px;
   }
 }

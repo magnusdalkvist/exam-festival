@@ -100,38 +100,10 @@ img {
   height: 100%;
 }
 
-/* SCHEDULE */
-
-.act {
-  display: flex;
-  justify-items: center;
-}
-
-.dayPicker {
-  overflow: hidden;
-  display: inline-flex;
-  gap: 2rem;
-}
-
-.dayPicker h2 {
-  -webkit-text-stroke: #72a24e 1.5px;
-  text-transform: uppercase;
-  -webkit-text-fill-color: transparent;
-  text-decoration: none;
-  font-size: 3rem;
-  font-weight: 700;
-}
-
 /* NextUI fixes */
 
 .nextui-collapse-content > div {
   padding: 0 0.5rem;
-}
-
-/* ACTIVE SCHEDULE */
-.active {
-  -webkit-text-fill-color: #79ac53;
-  color: #79ac53;
 }
 
 /* input fields */
