@@ -10,7 +10,7 @@ function Booking({ setState, state }) {
         setData(resp);
       });
     });
-  });
+  }, []);
   return (
     <>
       <div
