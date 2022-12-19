@@ -9,7 +9,7 @@ function OneSchedule(props) {
         if (e.act != "break") {
           return (
             <div className={styles.new_act}>
-              <Link href={"/artists/" + link}>
+              <Link href={"/bands/" + link}>
                 <h2 className={styles.linkHere}>{e.act}</h2>
               </Link>
             </div>

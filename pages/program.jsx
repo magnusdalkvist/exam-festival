@@ -16,7 +16,7 @@ function program(props) {
             const link = e.name.toLowerCase().split(" ").join("_");
             return (
               <div className={styles.act} key={i}>
-                <Link href={"/artists/" + link}>
+                <Link href={"/bands/" + link}>
                   <h2 className={styles.topArtisth2}>{e.name} </h2>
                 </Link>
               </div>
@@ -28,7 +28,7 @@ function program(props) {
             const link = e.name.toLowerCase().split(" ").join("_");
             return (
               <div className={styles.act} key={i}>
-                <Link href={"/artists/" + link}>
+                <Link href={"/bands/" + link}>
                   <h2 className={styles.mediumArtisth2}>{e.name}</h2>
                 </Link>
               </div>
@@ -40,7 +40,7 @@ function program(props) {
             const link = e.name.toLowerCase().split(" ").join("_");
             return (
               <div className={styles.act} key={i}>
-                <Link href={"/artists/" + link}>
+                <Link href={"/bands/" + link}>
                   <h2 className={styles.smallArtisth2}>{e.name}</h2>
                 </Link>
               </div>
