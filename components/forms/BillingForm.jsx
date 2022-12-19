@@ -44,7 +44,7 @@ function InfoForm(props) {
         <Spacer y={0} />
         <Input name="cardnumber" label="Credit card number" placeholder="1122 3344 5566 7788" onChange={checkForError} pattern="[0-9]{16}" required />
         <div className={styles.grid}>
-          <Input name="exp-date" label="Expiration date" placeholder="MM / YY" onChange={checkForError} pattern="[0-1][0-9][/][0-9]{2}" required />
+          <Input name="exp-date" label="Expiration date" placeholder="MM/YY" onChange={checkForError} pattern="[0-1][0-9][/][0-9]{2}" required maxLength={5} />
           <Input name="cvc" label="Security code" placeholder="CVC" onChange={checkForError} pattern="[0-9]{3}" required />
         </div>
       </form>
