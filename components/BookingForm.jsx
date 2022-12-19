@@ -14,6 +14,14 @@ function BookingForm(props) {
   const [info, setInfo] = useState([]);
   const [val, setVal] = useState(0);
   const [display, setDisplay] = useState(1);
+  const [spotData, setData] = useState();
+  useEffect(() => {
+    fetch("https://greenmark.fly.dev/available-spots/").then((result) => {
+      result.json().then((resp) => {
+        setData(resp);
+      });
+    });
+  }, [val]);
 
   const reset = () => {
     setInfo([]);
@@ -134,7 +142,7 @@ function BookingForm(props) {
       {!res && (
         <Collapse.Group className={styles.collapse + " collapsegroup"}>
           <Collapse title="Spot" subtitle="Select a camping spot" expanded={props.data?.length > 0}>
-            <SpotForm data={props.data} selection={(area) => setArea(area)} />
+            <SpotForm data={spotData} selection={(area) => setArea(area)} />
           </Collapse>
           <Collapse disabled={!area} title="Tickets" subtitle="Choose your tickets">
             <TicketForm cart={cart} setCart={setCart} />

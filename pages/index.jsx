@@ -1,6 +1,5 @@
 import styles from "../styles/Home.module.css";
-import AnchorLink from "../components/AnchorLink";
-import Image from "next/image";
+import Anchor from "../components/Anchor";
 
 export default function Home({ setState }) {
   return (
@@ -16,28 +15,11 @@ export default function Home({ setState }) {
           <a className={styles.calltoaction} onClick={() => setState("open")}>
             BUY TICKETS
           </a>
-          <AnchorLink className={styles.calltoaction} href="/schedule">
+          <Anchor className={styles.calltoaction} href="/schedule">
             SCHEDULE
-          </AnchorLink>
+          </Anchor>
         </div>
       </div>
-      {/* <div className={styles.info}>
-        <div className={styles.infomation}>
-          <Image></Image>
-          <h3></h3>
-          <p></p>
-        </div>
-        <div className={styles.infomation}>
-          <Image></Image>
-          <h3></h3>
-          <p></p>
-        </div>
-        <div className={styles.infomation}>
-          <Image></Image>
-          <h3></h3>
-          <p></p>
-        </div>
-      </div> */}
     </>
   );
 }
