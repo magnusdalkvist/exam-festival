@@ -11,8 +11,8 @@
 
 .email input {
   background: none;
-  border: 2px solid #79ac53;
-  color: #79ac53;
+  border: 2px solid var(--nature-green);
+  color: var(--nature-green);
   padding: 0.5rem 1rem;
   font-weight: bold;
   border-radius: 0 0.25rem 0.25rem 0;
@@ -33,7 +33,7 @@
 }
 
 .email input::placeholder {
-  color: #79ac53;
+  color: var(--nature-green);
 }
 
 .radiolist {
@@ -46,7 +46,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #79ac53;
+  color: var(--nature-green);
   font-weight: bold;
 }
 
@@ -56,8 +56,8 @@
   background: none;
   margin: 0;
   height: 1.5rem;
-  aspect-ratio: 1/1;
-  border: 0.15em solid #79ac53;
+  width: 1.5rem;
+  border: 0.15em solid var(--nature-green);
   border-radius: 50%;
   display: grid;
   place-content: center;
@@ -70,7 +70,7 @@
   aspect-ratio: 1/1;
   border-radius: 50%;
   transform: scale(0);
-  box-shadow: inset 1rem 1rem #79ac53;
+  box-shadow: inset 1rem 1rem var(--nature-green);
 }
 
 .radiolist input:checked::before {

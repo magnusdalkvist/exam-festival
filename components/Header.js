@@ -17,7 +17,7 @@ function Header() {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <Anchor className={styles.logo_large} href="/">
-          Greenmark
+          greenmark
         </Anchor>
         <Anchor className={styles.logo_small} href="/">
           GM

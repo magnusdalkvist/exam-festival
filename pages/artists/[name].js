@@ -2,26 +2,12 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "./Name.module.css";
-import { useEffect, useState } from "react";
 import { Collapse } from "@nextui-org/react";
 
 export default function Henry({ data }) {
   const src = data.band.logo;
   const srcCredit = data.band.logoCredits;
   const router = useRouter();
-
-  const url = "http://localhost:8080/schedule/";
-  const [stageData, setData] = useState([]);
-  //FETCH
-  useEffect(() => {
-    fetch(url).then((result) => {
-      result.json().then((resp) => {
-        setData(resp);
-      });
-    });
-  }, []);
-
-  // console.log(data1.Vanaheim.fri.find((e) => e.act == data.band.name));
 
   return (
     <>
@@ -38,7 +24,7 @@ export default function Henry({ data }) {
             {src.startsWith("http") ? (
               <Image src={src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
             ) : (
-              <Image src={"http://localhost:8080/logos/" + src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
+              <Image src={"https://greenmark.fly.dev/logos/" + src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
             )}
             {!srcCredit ? null : <p className={styles.credits}>{srcCredit}</p>}
           </div>
@@ -67,38 +53,9 @@ export default function Henry({ data }) {
   );
 }
 
-// // Fetching each route from the paths-array
-// export async function getStaticProps(context) {
-//   const slug = context.params.slug;
-//   const res = await fetch("http://localhost:8080/bands/" + slug);
-//   const data = await res.json();
-
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// }
-// {
-// }
-// // Creating an array of slugs/paths to be built
-// export async function getStaticPaths() {
-//   const res = await fetch("http://localhost:8080/bands");
-//   const data = await res.json();
-//   const jatak = entry[i].name.toLowerCase().trim().replaceAll(" ", "-");
-//   const paths = data.map((entry, i) => {
-//     return { params: { slug: jatak } };
-//   });
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-
 export async function getStaticProps(context) {
   const name = context.params.name;
-  const res = await fetch("http://localhost:8080/bands/" + name);
+  const res = await fetch("https://greenmark.fly.dev/bands/" + name);
 
   // If no succes, return a 404 redirect
   if (res.status != 200) {
@@ -117,14 +74,12 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("http://localhost:8080/bands/");
+  const res = await fetch("https://greenmark.fly.dev/bands/");
   const data = await res.json();
 
   const paths = data.map((obj) => {
     return { params: { name: obj.name.toLowerCase().split(" ").join("_") } };
   });
-
-  console.log(paths);
 
   return {
     paths: paths,

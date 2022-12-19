@@ -70,7 +70,7 @@ function BookingForm(props) {
           body: JSON.stringify({ area: area, amount: 1 }),
         };
 
-        fetch("http://localhost:8080/reserve-spot", options)
+        fetch("https://greenmark.fly.dev/reserve-spot", options)
           .then((response) => response.json())
           .then((response) => setRes(response))
           .catch((err) => console.error(err));
@@ -90,14 +90,14 @@ function BookingForm(props) {
         body: JSON.stringify({ id: res.id }),
       };
 
-      fetch("http://localhost:8080/fullfill-reservation", options)
+      fetch("https://greenmark.fly.dev/fullfill-reservation", options)
         .then((response) => response.json())
         .then((response) => sendData(response))
         .catch((err) => console.error(err));
 
       const sendData = (response) => {
         info.forEach((order) => {
-          if (response.status != 500) {
+          if (response.message == "Reservation completed") {
             const options = {
               method: "POST",
               headers: {
@@ -120,6 +120,8 @@ function BookingForm(props) {
               .then((response) => response.json())
               .then((response) => console.log(response))
               .catch((err) => console.error(err));
+          } else {
+            reset();
           }
         });
       };
@@ -160,7 +162,7 @@ function BookingForm(props) {
         </Collapse.Group>
       )}
       <div className={styles.cart + " " + (display == 1 && styles.close)} onClick={() => setDisplay((p) => p * -1)}>
-        <h2>Total: {getTotal()},-</h2>
+        <h2 className={styles.total}>Total: {getTotal()},-</h2>
         <ul>
           {cart.map((item, i) => {
             if (item.amount > 0) {

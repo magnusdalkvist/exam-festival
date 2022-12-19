@@ -1,15 +1,17 @@
 .main {
   padding: 100px 1rem;
   background-image: url(/1555186463.svg);
-  background-position: -100% bottom;
+  background-position: bottom;
   background-repeat: repeat-x;
-  background-size: 75%;
+  background-size: cover;
 }
 
 .daypicker {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   overflow-y: auto;
+  gap: 3rem;
+  padding-top: 2rem;
 }
 .daypicker::-webkit-scrollbar {
   display: none;
@@ -26,53 +28,46 @@
   border: none;
   margin: 0;
   cursor: pointer;
+  padding: 0;
+}
+
+.daysbtn h3 {
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 2px #79ac53;
+  -webkit-text-stroke: 2px var(--nature-green);
   font-weight: 700;
   font-size: 3.5rem;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 1rem 1.5rem 0rem;
 }
 
 .daysbtn:first-child {
-  padding-left: 50vh;
+  padding-left: calc(50vw - 165px);
 }
 .daysbtn:last-child {
-  padding-right: 50vh;
+  padding-right: calc(50vw - 155px);
 }
 
-.daysbtn:hover,
-.daysbtn:active {
-  -webkit-text-fill-color: #79ac53;
+.daysbtn h3:hover {
+  -webkit-text-fill-color: var(--nature-green);
+}
+
+.daysbtn .active {
+  -webkit-text-fill-color: var(--nature-green);
 }
 
 .linkHere {
-  color: #79ac53;
-  -webkit-text-fill-color: #79ac53;
+  color: var(--nature-green);
+  -webkit-text-fill-color: var(--nature-green);
   font-size: 2rem;
 }
 
 .breakTime {
-  color: #79ac53;
-  -webkit-text-fill-color: #79ac53;
+  color: var(--nature-green);
+  -webkit-text-fill-color: var(--nature-green);
   font-size: 2rem;
 }
 
-.h1 {
-  font-style: Bold;
-  font-size: 8em;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 3px #79ac53;
-  margin: 2rem 0 0rem;
-  text-align: center;
-}
-
 .h2underheader {
-  font-style: Bold;
-  font-size: 2em;
-  -webkit-text-fill-color: #79ac53;
-  margin: 2rem 0 0;
   text-align: center;
 }
 
@@ -83,6 +78,7 @@
 }
 
 .new_grid {
+  padding-top: 2rem;
   display: grid;
   grid-template-columns: auto repeat(3, 1fr);
   gap: 1rem;
@@ -92,12 +88,13 @@
 
 .new_grid h3 {
   font-size: 2rem;
-  color: #79ac53;
+  color: var(--nature-green);
   text-align: center;
 }
 
 .new_grid h2 {
   margin: 0;
+  padding: 0 2px;
 }
 
 .hidden {
@@ -113,7 +110,7 @@
 
 .new_act {
   background-color: rgba(122, 172, 83, 0.1);
-  color: #79ac53;
+  color: var(--nature-green);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,7 +133,7 @@
 }
 
 .new_break_line {
-  background-color: #79ac53;
+  background-color: var(--nature-green);
   height: 3px;
   width: 100%;
 }
@@ -144,7 +141,7 @@
 .new_times {
   background: none;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: #79ac53 2px;
+  -webkit-text-stroke: var(--nature-green) 2px;
   font-size: 2rem;
   display: grid;
   align-items: center;
@@ -154,36 +151,35 @@
 
 /* Make the page responsive */
 @media (max-width: 600px) {
-  .main {
-    background-position: center bottom;
-    background-size: cover;
-  }
-  .h1 {
-    font-size: 4rem;
-    -webkit-text-stroke: #79ac53 2px;
-  }
   .daysbtn h3 {
     font-size: 2rem;
   }
-  .daysbtn:first-child,
+  .daysbtn:first-child {
+    padding-left: calc(50vw - 100px);
+  }
   .daysbtn:last-child {
-    padding-left: 0;
-    padding-right: 0;
+    padding-right: calc(50vw - 100px);
   }
   .new_times {
     font-size: 1.5rem;
-    -webkit-text-stroke: #79ac53 1px;
+    -webkit-text-stroke: var(--nature-green) 1px;
   }
   .new_act h2 {
     font-size: 1rem;
   }
   .linkHere {
-    color: #79ac53;
-    -webkit-text-fill-color: #79ac53;
+    color: var(--nature-green);
+    -webkit-text-fill-color: var(--nature-green);
     font-size: 1rem;
   }
   .new_oneScheduleActs,
   .new_times {
     grid-auto-rows: 1fr 0.5fr;
+  }
+  .daypicker {
+    gap: 1.5rem;
+  }
+  .new_break_line {
+    height: 2px;
   }
 }

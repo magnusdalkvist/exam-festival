@@ -1,12 +1,48 @@
+:root {
+  --nature-green: #79ac53;
+  --midnight-blue: #37395f;
+  --am-blue: #2a2a48;
+  --white: #f2f2f2;
+}
+
 body {
   padding: 0;
   margin: 0;
-  background-color: #37395f;
+  background-color: var(--midnight-blue);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--nature-green);
+}
+
+h1 {
+  font-size: 6rem;
+  text-align: center;
+  -webkit-text-stroke: 3px var(--nature-green);
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
 h3 {
-  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1rem;
 }
 
 #__next {
@@ -15,7 +51,7 @@ h3 {
 }
 
 a {
-  color: #79ac53;
+  color: var(--nature-green);
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 700;
@@ -23,25 +59,25 @@ a {
 }
 
 .collapsegroup {
-  background-color: #2a2a48;
-  border: 3px solid #37395f;
+  background-color: var(--am-blue);
+  border: 3px solid var(--midnight-blue);
 }
 
 .collapsegroup .nextui-collapse-subtitle {
-  color: #72a24e;
+  color: var(--nature-green);
 }
 
 .collapsegroup .nextui-c-hPzDAx-jBQhgJ-divider-true {
-  border-bottom: solid 3px #37395f;
+  border-bottom: solid 3px var(--midnight-blue);
 }
 
 .collapsegroup h3,
 .collapsegroup p {
-  color: #f2f2f2 !important;
+  color: var(--white) !important;
 }
 
 .collapsegroup path {
-  stroke: #f2f2f2 !important;
+  stroke: var(--white) !important;
 }
 
 .collapsegroup .nextui-radio-point {
@@ -49,46 +85,24 @@ a {
 }
 
 .collapsegroup .nextui-radio-point::after {
-  border: #72a24e solid 2px;
+  border: var(--nature-green) solid 2px;
 }
 
 .collapsegroup .nextui-radio--is-hovered .nextui-radio-point::after {
-  border: #72a24e solid 5px;
+  border: var(--nature-green) solid 5px;
 }
 
 .collapsegroup .nextui-radio--checked .nextui-radio-point::after {
-  border: #72a24e solid 5px;
+  border: var(--nature-green) solid 5px;
 }
 
 footer {
-  background-color: #2a2a48;
+  background-color: var(--am-blue);
 }
 
 img {
   width: 100%;
   height: 100%;
-}
-
-/* SCHEDULE */
-
-.act {
-  display: flex;
-  justify-items: center;
-}
-
-.dayPicker {
-  overflow: hidden;
-  display: inline-flex;
-  gap: 2rem;
-}
-
-.dayPicker h2 {
-  -webkit-text-stroke: #72a24e 1.5px;
-  text-transform: uppercase;
-  -webkit-text-fill-color: transparent;
-  text-decoration: none;
-  font-size: 3rem;
-  font-weight: 700;
 }
 
 /* NextUI fixes */
@@ -97,14 +111,27 @@ img {
   padding: 0 0.5rem;
 }
 
-/* ACTIVE SCHEDULE */
-.active {
-  -webkit-text-fill-color: #79ac53;
-  color: #79ac53;
-}
-
 /* input fields */
 #error {
   color: red;
   border: solid red 2px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 4rem;
+    -webkit-text-stroke-width: 2px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
 }

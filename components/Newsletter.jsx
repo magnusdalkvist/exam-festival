@@ -5,7 +5,7 @@ import React from "react";
 function Newsletter() {
   return (
     <div className={styles.main}>
-      <h1>NEWSLETTER</h1>
+      <h2>NEWSLETTER</h2>
       <form className={styles.form}>
         <div className={styles.email}>
           <input type="text" placeholder="Email" name="email" />
@@ -18,7 +18,7 @@ function Newsletter() {
           </label>
           <label>
             <input type="radio" name="radio" />
-            I’m mostly interested in your environmental stuff
+            I’m interested in environmental stuff
           </label>
           <label>
             <input type="radio" name="radio" />
