@@ -30,7 +30,7 @@ function InfoForm(props) {
         </div>
         <div className={styles.grid}>
           <Input name="email" label="Email" placeholder="john@example.com" onChange={checkForError} pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required />
-          <Input name="mobile" label="Mobile" placeholder="12345678" onChange={checkForError} pattern="[+0-9]{8,}" required />
+          <Input name="mobile" label="Mobile" placeholder="12345678" onChange={checkForError} pattern="[+0-9]{8,}" required inputmode="numerical" />
         </div>
         <Input name="address1" label="Address 1" placeholder="Street and number" onChange={checkForError} pattern="[A-Za-z0-9'\.\-\s\,]{2,}" required />
         <div className={styles.grid}>
@@ -39,13 +39,13 @@ function InfoForm(props) {
         </div>
         <div className={styles.grid}>
           <Input name="city" label="City" placeholder="City name" onChange={checkForError} pattern="[A-Za-zæøåÆØÅ]{2,}" required />
-          <Input name="zip" label="Zip code" placeholder="1234" onChange={checkForError} pattern="[+0-9]{4,}" required />
+          <Input name="zip" label="Zip code" placeholder="1234" onChange={checkForError} pattern="[+0-9]{4,}" required inputmode="numerical" />
         </div>
         <Spacer y={0} />
-        <Input name="cardnumber" label="Credit card number" placeholder="1122 3344 5566 7788" onChange={checkForError} pattern="[0-9]{16}" required />
+        <Input name="cardnumber" label="Credit card number" placeholder="1122 3344 5566 7788" onChange={checkForError} pattern="[0-9]{16}" required maxLength={16} inputmode="numerical" />
         <div className={styles.grid}>
-          <Input name="exp-date" label="Expiration date" placeholder="MM/YY" onChange={checkForError} pattern="[0-1][0-9][/][0-9]{2}" required maxLength={5} />
-          <Input name="cvc" label="Security code" placeholder="CVC" onChange={checkForError} pattern="[0-9]{3}" required />
+          <Input name="exp-date" label="Expiration date" placeholder="MM/YY" onChange={checkForError} pattern="[0-1][0-9][/][0-9]{2}" required maxLength={5} inputmode="numerical" />
+          <Input name="cvc" label="Security code" placeholder="CVC" onChange={checkForError} pattern="[0-9]{3}" required maxLength={3} inputmode="numerical" />
         </div>
       </form>
     </div>
