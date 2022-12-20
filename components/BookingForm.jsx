@@ -109,8 +109,10 @@ function BookingForm(props) {
             const options = {
               method: "POST",
               headers: {
-                apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlhcmRva2RjeWVpeGptaGhteGV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAxNzE5OTYsImV4cCI6MTk4NTc0Nzk5Nn0.uig3ma3vMK5hoixd-GrRayxapGxXaEFO1UBYDS_RZdw",
-                Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlhcmRva2RjeWVpeGptaGhteGV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAxNzE5OTYsImV4cCI6MTk4NTc0Nzk5Nn0.uig3ma3vMK5hoixd-GrRayxapGxXaEFO1UBYDS_RZdw",
+                apikey:
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlhcmRva2RjeWVpeGptaGhteGV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAxNzE5OTYsImV4cCI6MTk4NTc0Nzk5Nn0.uig3ma3vMK5hoixd-GrRayxapGxXaEFO1UBYDS_RZdw",
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlhcmRva2RjeWVpeGptaGhteGV1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAxNzE5OTYsImV4cCI6MTk4NTc0Nzk5Nn0.uig3ma3vMK5hoixd-GrRayxapGxXaEFO1UBYDS_RZdw",
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
@@ -147,7 +149,11 @@ function BookingForm(props) {
           <Collapse disabled={!area} title="Tickets" subtitle="Choose your tickets">
             <TicketForm cart={cart} setCart={setCart} />
           </Collapse>
-          <Collapse disabled={cart.findIndex((e) => e.type == "ticket" && e.amount > 0) < 0} title="Ticket info" subtitle="Info for each ticket">
+          <Collapse
+            disabled={cart.findIndex((e) => e.type == "ticket" && e.amount > 0) < 0}
+            title="Ticket info"
+            subtitle="Info for each ticket"
+          >
             <InfoForm cart={cart} validation={(val) => setVal(0 + val)} />
           </Collapse>
         </Collapse.Group>
@@ -161,7 +167,11 @@ function BookingForm(props) {
       )}
       {val == 3 && (
         <Collapse.Group className={styles.collapse + " collapsegroup"}>
-          <Collapse title="Your order is complete!" subtitle="Thank you for your purchase" expanded></Collapse>
+          <Collapse
+            title="Your order is complete!"
+            subtitle="Thank you for your purchase"
+            expanded
+          ></Collapse>
         </Collapse.Group>
       )}
       {res?.error && (
@@ -169,7 +179,10 @@ function BookingForm(props) {
           <Collapse title="Too many requests!" subtitle="Please Reload"></Collapse>
         </Collapse.Group>
       )}
-      <div className={styles.cart + " " + (display == 1 && styles.close)} onClick={() => setDisplay((p) => p * -1)}>
+      <div
+        className={styles.cart + " " + (display == 1 && styles.close)}
+        onClick={() => setDisplay((p) => p * -1)}
+      >
         <h2 className={styles.total}>Total: {getTotal()},-</h2>
         <ul>
           {cart.map((item, i) => {

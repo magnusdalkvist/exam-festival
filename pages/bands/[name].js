@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./Name.module.css";
 import { Collapse } from "@nextui-org/react";
 
-export default function Henry({ data }) {
+export default function band({ data }) {
   const src = data.band.logo;
   const srcCredit = data.band.logoCredits;
   const router = useRouter();
@@ -22,9 +22,21 @@ export default function Henry({ data }) {
         <div className={styles.grid}>
           <div className={styles.image}>
             {src.startsWith("http") ? (
-              <Image src={src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
+              <Image
+                src={src}
+                alt={srcCredit}
+                className={styles.theImage}
+                width={500}
+                height={500}
+              />
             ) : (
-              <Image src={"https://greenmark.fly.dev/logos/" + src} alt={srcCredit} className={styles.theImage} width={500} height={500} />
+              <Image
+                src={"https://greenmark.fly.dev/logos/" + src}
+                alt={srcCredit}
+                className={styles.theImage}
+                width={500}
+                height={500}
+              />
             )}
             {!srcCredit ? null : <p className={styles.credits}>{srcCredit}</p>}
           </div>
