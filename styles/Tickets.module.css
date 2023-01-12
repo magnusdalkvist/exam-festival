@@ -14,6 +14,54 @@
   gap: 2rem;
 }
 
+.spotOptions {
+  grid-column: 1/3;
+}
+
+.spots {
+  align-self: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 2rem;
+  background-color: var(--am-blue);
+  border: var(--midnight-blue) 3px solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.spot {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.available {
+  display: grid;
+}
+
+.available p {
+  grid-area: 1/1;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  background-color: var(--am-blue);
+  color: var(--white);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  border: var(--nature-green) 2px solid;
+}
+
+.tent {
+  grid-area: 1/1;
+  height: 100%;
+  fill: var(--midnight-blue);
+}
+
+.overlay {
+  fill: var(--nature-green);
+  transform-origin: bottom;
+}
+
 .wrapper {
   padding-top: 2rem;
   margin: 0 auto;
@@ -56,6 +104,9 @@
 @media (max-width: 500px) {
   .wrapper {
     grid-template-columns: 1fr;
+  }
+  .spotOptions {
+    grid-column: 1/2;
   }
   .h1 {
     font-size: 4em;
